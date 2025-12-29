@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demos - Quantum-Floor AI</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 100%);
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(90deg, #00f0ff, #0080ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        p { color: #888; margin-bottom: 2rem; }
+        .demo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            max-width: 900px;
+            width: 100%;
+        }
+        .demo-card {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(0,240,255,0.2);
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        .demo-card:hover {
+            border-color: #00f0ff;
+            box-shadow: 0 0 30px rgba(0,240,255,0.2);
+            transform: translateY(-5px);
+        }
+        .demo-card h3 { color: #00f0ff; margin-bottom: 0.5rem; }
+        .demo-card p { font-size: 0.9rem; margin-bottom: 1rem; }
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+        .badge.coming { background: rgba(255,165,0,0.2); color: #ffa500; }
+        a { color: #00f0ff; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <h1>Interactive Demos</h1>
+    <p>Experience Quantum-Floor AI models in action</p>
+
+    <div class="demo-grid">
+        <div class="demo-card">
+            <h3>REGIS-7B-C</h3>
+            <p>Full language model with voice synthesis. Test text generation and page-to-speech.</p>
+            <span class="badge coming">Coming Soon</span>
+        </div>
+
+        <div class="demo-card">
+            <h3>AXIS-7B-C</h3>
+            <p>Ultra-fast instant speech. Experience &lt;20ms latency selection-to-speech.</p>
+            <span class="badge coming">Coming Soon</span>
+        </div>
+
+        <div class="demo-card">
+            <h3>Connection-Core</h3>
+            <p>Memory engine demo. Test semantic memory and conversation history.</p>
+            <span class="badge coming">Coming Soon</span>
+        </div>
+    </div>
+
+    <p style="margin-top: 2rem;"><a href="../index.html">&larr; Back to Home</a></p>
+</body>
+</html>
