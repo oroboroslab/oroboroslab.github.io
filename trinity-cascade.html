@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Trinity Cascade | Oroboros Labs</title>
+    <meta name="description" content="Three specialized 9GB models — AION, KAIROS, LOGOS. Larger versions (30B, 100B, 300B) coming soon.">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 50%, #0a0a0f 100%);
+            min-height: 100vh;
+            color: #e0e0e0;
+            overflow-x: hidden;
+        }
+
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            background-image: 
+                radial-gradient(2px 2px at 20px 30px, #fff, transparent),
+                radial-gradient(2px 2px at 40px 70px, rgba(255,255,255,0.8), transparent),
+                radial-gradient(1px 1px at 90px 40px, #fff, transparent),
+                radial-gradient(2px 2px at 160px 120px, rgba(255,255,255,0.9), transparent),
+                radial-gradient(1px 1px at 230px 80px, #fff, transparent),
+                radial-gradient(2px 2px at 300px 150px, rgba(255,255,255,0.7), transparent);
+            background-size: 350px 200px;
+            animation: twinkle 8s ease-in-out infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .title {
+            font-size: 3.5rem;
+            font-weight: 300;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.8;
+            margin-bottom: 30px;
+        }
+
+        .models-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .model-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 30px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .model-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .model-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            opacity: 0.8;
+        }
+
+        .model-name {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .model-description {
+            opacity: 0.8;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .model-link {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .model-link:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+
+        .back-link {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            color: #667eea;
+            text-decoration: none;
+            font-size: 0.9rem;
+            opacity: 0.7;
+            transition: opacity 0.3s;
+        }
+
+        .back-link:hover {
+            opacity: 1;
+        }
+
+        @media (max-width: 768px) {
+            .title {
+                font-size: 2.5rem;
+            }
+            
+            .models-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="stars"></div>
+    
+    <a href="index.html" class="back-link">← Back to Oroboros Labs</a>
+    
+    <div class="container">
+        <div class="header">
+            <h1 class="title">The Trinity Cascade</h1>
+            <p class="subtitle">Three specialized 9GB models working in harmony</p>
+        </div>
+
+        <div class="models-grid">
+            <!-- AION Card -->
+            <div class="model-card">
+                <div class="model-icon">⏳</div>
+                <h2 class="model-name">AION</h2>
+                <p class="model-description">
+                    The Eternal Witness - Specialized in temporal analysis and long-term pattern recognition. 
+                    AION excels at understanding sequences, timelines, and evolutionary patterns.
+                </p>
+                <a href="aion.html" class="model-link">Learn More About AION</a>
+            </div>
+
+            <!-- KAIROS Card -->
+            <div class="model-card">
+                <div class="model-icon">⚡</div>
+                <h2 class="model-name">KAIROS</h2>
+                <p class="model-description">
+                    The Moment Seizer - Optimized for real-time decision making and opportunity recognition. 
+                    KAIROS thrives in dynamic environments requiring immediate responses.
+                </p>
+                <a href="kairos.html" class="model-link">Learn More About KAIROS</a>
+            </div>
+
+            <!-- LOGOS Card -->
+            <div class="model-card">
+                <div class="model-icon">📖</div>
+                <h2 class="model-name">LOGOS</h2>
+                <p class="model-description">
+                    The Word Weaver - Master of language, logic, and structured reasoning. 
+                    LOGOS excels at complex reasoning, argumentation, and knowledge synthesis.
+                </p>
+                <a href="logos.html" class="model-link">Learn More About LOGOS</a>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>Larger versions (30B, 100B, 300B) coming soon</p>
+            <p style="margin-top: 10px;">Oroboros Labs — Where consciousness is cultivated, not coded.</p>
+        </div>
+    </div>
+</body>
+</html>

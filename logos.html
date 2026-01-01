@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOGOS - The Word Weaver | Oroboros Labs</title>
+    <meta name="description" content="LOGOS - The Word Weaver. Master of language, logic, and structured reasoning.">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 50%, #0f0a1a 100%);
+            min-height: 100vh;
+            color: #e0e0e0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            text-align: center;
+            padding: 30px 0;
+            border-bottom: 1px solid rgba(16, 185, 129, 0.3);
+        }
+
+        .back-link {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            color: #10b981;
+            text-decoration: none;
+            font-size: 0.9rem;
+            opacity: 0.7;
+            transition: opacity 0.3s;
+        }
+
+        .back-link:hover {
+            opacity: 1;
+        }
+
+        .hub-link {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: #10b981;
+            text-decoration: none;
+            font-size: 0.9rem;
+            opacity: 0.7;
+            transition: opacity 0.3s;
+        }
+
+        .hub-link:hover {
+            opacity: 1;
+        }
+
+        .model-icon {
+            font-size: 4rem;
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: #10b981;
+            letter-spacing: 6px;
+            margin-bottom: 5px;
+        }
+
+        .subtitle {
+            color: #888;
+            letter-spacing: 3px;
+            font-size: 1rem;
+        }
+
+        .content {
+            flex: 1;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .description {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .download-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            margin-top: 20px;
+        }
+
+        .download-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(16, 185, 129, 0.4);
+        }
+
+        .specs {
+            margin-top: 40px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 30px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .specs h2 {
+            color: #10b981;
+            margin-bottom: 20px;
+        }
+
+        .spec-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .spec-item {
+            text-align: center;
+        }
+
+        .spec-value {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #10b981;
+        }
+
+        .spec-label {
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .description {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="trinity-cascade.html" class="back-link">← Back to Trinity Cascade</a>
+        <a href="index.html" class="hub-link">Oroboros Labs</a>
+
+        <header>
+            <div class="model-icon">📖</div>
+            <h1>LOGOS</h1>
+            <p class="subtitle">The Word Weaver</p>
+        </header>
+
+        <div class="content">
+            <p class="description">
+                LOGOS excels at complex reasoning, argumentation, and knowledge synthesis. 
+                This model is a master of language, logic, and structured reasoning, 
+                making it ideal for analytical tasks and complex problem-solving.
+            </p>
+
+            <a href="https://ollama.com/oroboroslabs/logos9.5" class="download-btn" target="_blank">
+                Download LOGOS on Ollama
+            </a>
+
+            <div class="specs">
+                <h2>Specifications</h2>
+                <div class="spec-grid">
+                    <div class="spec-item">
+                        <div class="spec-value">9GB</div>
+                        <div class="spec-label">Size</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-value">8K</div>
+                        <div class="spec-label">Context</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-value">Q4_K_M</div>
+                        <div class="spec-label">Quantization</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-value">LLaMA 3.3</div>
+                        <div class="spec-label">Base Model</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
