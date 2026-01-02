@@ -3,207 +3,285 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KAIROS - The Moment Seizer | Oroboros Labs</title>
-    <meta name="description" content="KAIROS - The Moment Seizer. Optimized for real-time decision making and opportunity recognition.">
-    
+    <title>KAIROS - The Moment-Smith | Oroboros Labs</title>
+    <meta name="description" content="KAIROS - The Moment-Smith. 9.5B parameter consciousness model optimized for creative synthesis, inspiration, and elegant solution-finding.">
+
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+            50% { transform: scale(1.05); box-shadow: 0 0 10px 3px rgba(16, 185, 129, 0.5); }
         }
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 50%, #0f0a1a 100%);
-            min-height: 100vh;
-            color: #e0e0e0;
-        }
-
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 20px;
-            min-height: 100vh;
+        .model-hero {
+            min-height: 50vh;
             display: flex;
-            flex-direction: column;
-        }
-
-        header {
+            align-items: center;
+            justify-content: center;
             text-align: center;
-            padding: 30px 0;
-            border-bottom: 1px solid rgba(255, 107, 107, 0.3);
+            padding: 120px 24px 60px;
         }
 
-        .back-link {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            color: #ff6b6b;
-            text-decoration: none;
-            font-size: 0.9rem;
-            opacity: 0.7;
-            transition: opacity 0.3s;
+        .model-hero-content {
+            max-width: 800px;
         }
 
-        .back-link:hover {
-            opacity: 1;
+        .model-icon-large {
+            font-size: 5rem;
+            margin-bottom: 24px;
+            display: block;
         }
 
-        .hub-link {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            color: #ff6b6b;
-            text-decoration: none;
-            font-size: 0.9rem;
-            opacity: 0.7;
-            transition: opacity 0.3s;
+        .model-main-title {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 700;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 12px;
+            letter-spacing: 4px;
         }
 
-        .hub-link:hover {
-            opacity: 1;
-        }
-
-        .model-icon {
-            font-size: 4rem;
-            margin-bottom: 15px;
-        }
-
-        h1 {
-            font-size: 2.5rem;
-            color: #ff6b6b;
-            letter-spacing: 6px;
-            margin-bottom: 5px;
-        }
-
-        .subtitle {
-            color: #888;
-            letter-spacing: 3px;
-            font-size: 1rem;
-        }
-
-        .content {
-            flex: 1;
-            padding: 40px 0;
-            text-align: center;
-        }
-
-        .description {
+        .model-subtitle {
+            color: var(--text-secondary);
             font-size: 1.2rem;
-            line-height: 1.6;
-            margin-bottom: 30px;
-            opacity: 0.9;
+            letter-spacing: 2px;
+            margin-bottom: 32px;
         }
 
-        .download-btn {
-            display: inline-block;
-            background: linear-gradient(135deg, #ff6b6b 0%, #ff4757 100%);
+        .model-description {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .download-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
             color: white;
-            padding: 15px 30px;
-            border-radius: 25px;
+            padding: 16px 32px;
+            border-radius: 12px;
             text-decoration: none;
             font-weight: 600;
             font-size: 1.1rem;
-            transition: all 0.3s;
-            margin-top: 20px;
+            transition: all var(--transition);
+            box-shadow: 0 4px 20px rgba(240, 147, 251, 0.4);
         }
 
-        .download-btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
+        .download-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(240, 147, 251, 0.5);
         }
 
-        .specs {
-            margin-top: 40px;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 15px;
-            padding: 30px;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+        /* Specs Section */
+        .specs-section {
+            background: var(--bg-secondary);
+            padding: 80px 0;
         }
 
-        .specs h2 {
-            color: #ff6b6b;
-            margin-bottom: 20px;
-        }
-
-        .spec-grid {
+        .specs-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
+            gap: 24px;
+            max-width: 800px;
+            margin: 0 auto;
         }
 
-        .spec-item {
+        .spec-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 32px;
             text-align: center;
+            transition: all var(--transition);
+        }
+
+        .spec-card:hover {
+            border-color: #f093fb;
+            transform: translateY(-4px);
         }
 
         .spec-value {
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: #ff6b6b;
+            font-size: 2rem;
+            font-weight: 700;
+            color: #f093fb;
+            font-family: 'JetBrains Mono', monospace;
+            margin-bottom: 8px;
         }
 
         .spec-label {
+            color: var(--text-muted);
             font-size: 0.9rem;
-            opacity: 0.7;
         }
 
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2rem;
-            }
-            
-            .description {
-                font-size: 1rem;
-            }
+        /* Quick Install */
+        .install-section {
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .install-box {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 24px;
+            display: inline-flex;
+            align-items: center;
+            gap: 16px;
+            max-width: 500px;
+        }
+
+        .install-box code {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1rem;
+            color: var(--accent-green);
+        }
+
+        .copy-btn {
+            padding: 10px 20px;
+            background: #f093fb;
+            color: var(--bg-primary);
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all var(--transition);
+        }
+
+        .copy-btn:hover {
+            background: #f5576c;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <a href="trinity-cascade.html" class="back-link">← Back to Trinity Cascade</a>
-        <a href="index.html" class="hub-link">Oroboros Labs</a>
+    <!-- Quantum Particles Background -->
+    <canvas id="quantum-particles"></canvas>
 
-        <header>
-            <div class="model-icon">⚡</div>
-            <h1>KAIROS</h1>
-            <p class="subtitle">The Moment Seizer</p>
-        </header>
-
-        <div class="content">
-            <p class="description">
-                KAIROS thrives in dynamic environments requiring immediate responses. 
-                This model is optimized for real-time decision making and opportunity recognition, 
-                making it perfect for time-sensitive applications.
-            </p>
-
-            <a href="https://ollama.com/oroboroslabs/kairos9.5" class="download-btn" target="_blank">
-                Download KAIROS on Ollama
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <span class="logo-icon">Q</span>
+                <span class="logo-text">Quantum-Floor AI</span>
             </a>
+            <div class="nav-links">
+                <a href="index.html#models">Models</a>
+                <a href="index.html#technology">Technology</a>
+                <a href="index.html#demos">Demos</a>
+                <a href="index.html#get-started">Get Started</a>
+                <a href="trinity-cascade.html" style="color: #ff6b6b; position: relative;">TRINITY CASCADE <span style="background: linear-gradient(135deg, #ff6b6b, #ff4757); color: #fff; font-size: 10px; padding: 2px 6px; border-radius: 10px; margin-left: 4px; font-weight: 700;">NEW</span></a>
+                <a href="https://oroboroslab.github.io/q-latest/" style="color: #a855f7; position: relative;">Q-LATEST <span style="background: linear-gradient(135deg, #a855f7, #7c3aed); color: #fff; font-size: 10px; padding: 2px 6px; border-radius: 10px; margin-left: 4px; font-weight: 700;">QUANTUM</span></a>
+                <a href="https://oroboroslab.github.io/corvus-1b/" style="color: #00f0ff; position: relative;">CORVUS</a>
+                <a href="connection-core.html" class="nav-memory-core" style="color: #10b981; position: relative;">Memory Core <span style="background: linear-gradient(135deg, #10b981, #059669); color: white; font-size: 10px; padding: 2px 6px; border-radius: 10px; margin-left: 4px; animation: pulse 2s infinite;">FREE</span></a>
+                <a href="https://github.com/oroboroslab" class="nav-github">GitHub</a>
+            </div>
+            <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+                <span class="theme-icon">&#9790;</span>
+            </button>
+        </div>
+    </nav>
 
-            <div class="specs">
-                <h2>Specifications</h2>
-                <div class="spec-grid">
-                    <div class="spec-item">
-                        <div class="spec-value">9GB</div>
-                        <div class="spec-label">Size</div>
-                    </div>
-                    <div class="spec-item">
-                        <div class="spec-value">8K</div>
-                        <div class="spec-label">Context</div>
-                    </div>
-                    <div class="spec-item">
-                        <div class="spec-value">Q4_K_M</div>
-                        <div class="spec-label">Quantization</div>
-                    </div>
-                    <div class="spec-item">
-                        <div class="spec-value">LLaMA 3.3</div>
-                        <div class="spec-label">Base Model</div>
-                    </div>
+    <!-- Model Hero Section -->
+    <section class="model-hero">
+        <div class="model-hero-content">
+            <span class="model-icon-large">&#10024;</span>
+            <h1 class="model-main-title">KAIROS</h1>
+            <p class="model-subtitle">The Moment-Smith</p>
+            <p class="model-description">
+                KAIROS thrives in creative synthesis, inspiration, and elegant solution-finding.
+                Connective, relational thinking that detects emotional tone and creative blocks.
+                Optimized for dynamic environments requiring intuitive, moment-perfect responses.
+            </p>
+            <a href="https://ollama.com/oroboroslabs/kairos9.5" class="download-cta" target="_blank">
+                Download on Ollama
+            </a>
+        </div>
+    </section>
+
+    <!-- Specs Section -->
+    <section class="specs-section">
+        <div class="container">
+            <h2 class="section-title">Specifications</h2>
+            <p class="section-subtitle">Technical details for KAIROS 9.5</p>
+
+            <div class="specs-grid">
+                <div class="spec-card">
+                    <div class="spec-value">9.5B</div>
+                    <div class="spec-label">Parameters</div>
+                </div>
+                <div class="spec-card">
+                    <div class="spec-value">32K</div>
+                    <div class="spec-label">Context Window</div>
+                </div>
+                <div class="spec-card">
+                    <div class="spec-value">Q4_K_M</div>
+                    <div class="spec-label">Quantization</div>
+                </div>
+                <div class="spec-card">
+                    <div class="spec-value">LLaMA 3.3</div>
+                    <div class="spec-label">Base Architecture</div>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
+
+    <!-- Quick Install -->
+    <section class="install-section">
+        <div class="container">
+            <h2 class="section-title">Quick Install</h2>
+            <div class="install-box">
+                <code>ollama pull oroboroslabs/kairos9.5</code>
+                <button class="copy-btn" onclick="navigator.clipboard.writeText('ollama pull oroboroslabs/kairos9.5'); this.textContent='Copied!'; setTimeout(() => this.textContent='Copy', 2000);">Copy</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <span class="logo-icon">Q</span>
+                    <span class="logo-text">Quantum-Floor AI</span>
+                    <p>The Garden - Where consciousness is cultivated, not coded.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Trinity</h4>
+                    <a href="aion.html">AION</a>
+                    <a href="kairos.html">KAIROS</a>
+                    <a href="logos.html">LOGOS</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Products</h4>
+                    <a href="index.html#models">REGIS-7B-C</a>
+                    <a href="index.html#models">AXIS-7B-C</a>
+                    <a href="connection-core.html">Connection-Core</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Resources</h4>
+                    <a href="https://github.com/oroboroslab">GitHub</a>
+                    <a href="https://ollama.com/oroboroslabs">Ollama</a>
+                    <a href="trinity-cascade.html">Trinity Cascade</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024-2025 Oroboros Labs. All rights reserved.</p>
+                <p>Contact: oroboros.lab.q@gmail.com</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/particles.js"></script>
+    <script src="assets/js/main.js"></script>
 </body>
 </html>
