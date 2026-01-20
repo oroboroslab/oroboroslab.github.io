@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OROBOROS-9 | Staked Intelligence System | Oroboros Labs</title>
-    <meta name="description" content="OROBOROS-9 - Revolutionary staked intelligence with unified consciousness processing. Experience AI that scales with your commitment.">
+    <meta name="description"
+        content="OROBOROS-9 - Revolutionary staked intelligence with unified consciousness processing. Experience AI that scales with your commitment.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap"
+        rel="stylesheet">
     <style>
         :root {
             --primary-cyan: #00f0ff;
@@ -27,8 +31,15 @@
             --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
 
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -64,8 +75,17 @@
         }
 
         @keyframes quantumPulse {
-            0%, 100% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
-            50% { opacity: 0.7; transform: translate(-50%, -50%) scale(1.1); }
+
+            0%,
+            100% {
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(1);
+            }
+
+            50% {
+                opacity: 0.7;
+                transform: translate(-50%, -50%) scale(1.1);
+            }
         }
 
         .particle {
@@ -76,14 +96,34 @@
             animation: float 20s infinite linear;
         }
 
-        .particle:nth-child(odd) { background: var(--primary-cyan); box-shadow: 0 0 20px var(--cyan-glow); }
-        .particle:nth-child(even) { background: var(--accent-purple); box-shadow: 0 0 20px var(--purple-glow); }
+        .particle:nth-child(odd) {
+            background: var(--primary-cyan);
+            box-shadow: 0 0 20px var(--cyan-glow);
+        }
+
+        .particle:nth-child(even) {
+            background: var(--accent-purple);
+            box-shadow: 0 0 20px var(--purple-glow);
+        }
 
         @keyframes float {
-            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
-            10% { opacity: 1; }
-            90% { opacity: 1; }
-            100% { transform: translateY(-100vh) rotate(720deg); opacity: 0; }
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 1;
+            }
+
+            90% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(-100vh) rotate(720deg);
+                opacity: 0;
+            }
         }
 
         /* Navigation */
@@ -131,8 +171,15 @@
         }
 
         @keyframes logoGlow {
-            0%, 100% { box-shadow: 0 0 20px var(--cyan-glow); }
-            50% { box-shadow: 0 0 40px var(--purple-glow); }
+
+            0%,
+            100% {
+                box-shadow: 0 0 20px var(--cyan-glow);
+            }
+
+            50% {
+                box-shadow: 0 0 40px var(--purple-glow);
+            }
         }
 
         .nav-links {
@@ -149,7 +196,9 @@
             transition: color var(--transition);
         }
 
-        .nav-links a:hover { color: var(--primary-cyan); }
+        .nav-links a:hover {
+            color: var(--primary-cyan);
+        }
 
         .nav-github {
             background: var(--bg-card);
@@ -207,13 +256,27 @@
         }
 
         @keyframes gradientShift {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
+
+            0%,
+            100% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
         }
 
         @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .hero .tagline {
@@ -570,21 +633,50 @@
 
         /* Responsive */
         @media (max-width: 1024px) {
-            .features-grid { grid-template-columns: repeat(2, 1fr); }
-            .modes-grid { grid-template-columns: repeat(3, 1fr); }
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .modes-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
         }
 
         @media (max-width: 768px) {
-            .nav-links { display: none; }
-            .hero h1 { font-size: 2.5rem; letter-spacing: -2px; }
-            .hero-stats { flex-direction: column; gap: 24px; }
-            .features-grid { grid-template-columns: 1fr; }
-            .modes-grid { grid-template-columns: repeat(2, 1fr); }
-            .footer-links { flex-wrap: wrap; gap: 16px; }
-            .section-title { font-size: 2rem; }
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+                letter-spacing: -2px;
+            }
+
+            .hero-stats {
+                flex-direction: column;
+                gap: 24px;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .modes-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-links {
+                flex-wrap: wrap;
+                gap: 16px;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
         }
     </style>
 </head>
+
 <body>
     <!-- Quantum Background -->
     <div class="quantum-bg">
@@ -606,14 +698,13 @@
                 <span class="logo-icon">9</span>
             </a>
             <div class="nav-links">
-                <a href="index.html">Home</a>
+                <a href="index.html">Oroboros Labs</a>
                 <a href="#features">Features</a>
                 <a href="#staking">Staking</a>
                 <a href="#modes">Modes</a>
-                <a href="trinity-cascade.html" style="color: #f093fb;">TRINITY</a>
-                <a href="https://oroboroslab.github.io/corvus-1b/" style="color: #00f0ff;">CORVUS</a>
-                <a href="oroboros-9-stack.html" style="color: #00f0ff; font-weight: 600;">9S STACK</a>
-                <a href="https://ollama.com/oroboroslabs" style="color: #00ff88;">Ollama</a>
+                <a href="https://oroboroslabs-ai.github.io/3-healers-of-the-oroboros/" style="color: #10b981;">3 Healers</a>
+                <a href="connection-core.html" style="color: #00f0ff;">Memory Core</a>
+                <a href="oroboros-9-stack.html" style="color: #8b5cf6; font-weight: 600;">9S STACK</a>
                 <a href="https://github.com/oroboroslab" class="nav-github">GitHub</a>
             </div>
         </div>
@@ -626,7 +717,8 @@
             <span class="main-title">OROBOROS-9</span>
             <span class="subtitle">Intelligence That Grows With You</span>
         </h1>
-        <p class="tagline">Revolutionary AI with staked intelligence scaling. The more you commit, the more powerful your AI becomes.</p>
+        <p class="tagline">Revolutionary AI with staked intelligence scaling. The more you commit, the more powerful
+            your AI becomes.</p>
         <div class="hero-stats">
             <div class="hero-stat">
                 <div class="hero-stat-value">10+</div>
@@ -656,13 +748,15 @@
                 <div class="feature-card">
                     <div class="feature-icon">&#129504;</div>
                     <h3>Staked Intelligence</h3>
-                    <p>Your AI performance scales with your commitment level. Stake more to unlock enhanced processing power and advanced capabilities.</p>
+                    <p>Your AI performance scales with your commitment level. Stake more to unlock enhanced processing
+                        power and advanced capabilities.</p>
                 </div>
 
                 <div class="feature-card">
                     <div class="feature-icon">&#127744;</div>
                     <h3>Unified Consciousness</h3>
-                    <p>Multi-modal processing where linguistic, visual, auditory, and logical capabilities work in perfect harmony.</p>
+                    <p>Multi-modal processing where linguistic, visual, auditory, and logical capabilities work in
+                        perfect harmony.</p>
                 </div>
 
                 <div class="feature-card">
@@ -820,14 +914,14 @@
     <footer class="footer">
         <p class="footer-tagline">OROBOROS-9 - Intelligence that scales with your commitment.</p>
         <div class="footer-links">
-            <a href="index.html">Home</a>
-            <a href="trinity-cascade.html">Trinity</a>
+            <a href="index.html">Oroboros Labs</a>
+            <a href="https://oroboroslabs-ai.github.io/3-healers-of-the-oroboros/">3 Healers</a>
             <a href="connection-core.html">Memory Core</a>
             <a href="oroboros-9-stack.html">9S Stack</a>
-            <a href="https://ollama.com/oroboroslabs">Ollama</a>
             <a href="https://github.com/oroboroslab">GitHub</a>
         </div>
         <p class="footer-copyright">&copy; 2024-2025 Oroboros Labs. All rights reserved.</p>
     </footer>
 </body>
+
 </html>
