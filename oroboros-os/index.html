@@ -303,78 +303,44 @@
             background: rgba(0, 240, 255, 0.1);
         }
 
-        /* Ring/Loop Visuals */
+        /* OROBOROS SVG Logo Visuals */
         .hero-noir-visual {
             display: flex;
             gap: 40px;
             justify-content: center;
+            align-items: center;
         }
 
-        .ring-entity {
-            width: 250px;
-            height: 350px;
-            position: relative;
-            animation: float-ring 6s ease-in-out infinite;
+        .oroboros-svg-logo {
+            width: 300px;
+            height: 300px;
+            animation: float-logo 6s ease-in-out infinite, rotate-logo 30s linear infinite, eye-glow-pulse 3s ease-in-out infinite;
+            filter: drop-shadow(0 0 25px rgba(0, 240, 255, 0.6));
+            transition: all 0.3s ease;
+            object-fit: contain;
         }
 
-        @keyframes float-ring {
+        .oroboros-svg-logo:hover {
+            transform: scale(1.05);
+            filter: drop-shadow(0 0 35px rgba(139, 92, 246, 0.8));
+        }
+
+        @keyframes float-logo {
             0%, 100% { transform: translateY(0); }
             50% { transform: translateY(-15px); }
         }
 
-        .ring-body {
-            position: absolute;
-            top: 100px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 150px;
-            height: 150px;
-            background: rgba(10, 10, 10, 0.95);
-            border-radius: 50%;
-            box-shadow:
-                0 0 40px rgba(0, 240, 255, 0.2),
-                inset 0 0 40px rgba(0, 0, 0, 0.8);
+        @keyframes rotate-logo {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
         }
 
-        .snake-head {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%) rotate(60deg);
-            width: 40px;
-            height: 25px;
-            background: rgba(10, 10, 10, 0.95);
-            border-radius: 50% 50% 50% 50%;
-            transform-origin: center;
-            box-shadow:
-                0 0 20px rgba(0, 240, 255, 0.3),
-                inset 0 0 20px rgba(0, 0, 0, 0.8);
-        }
-
-        .ring-eye {
-            position: absolute;
-            top: 50%;
-            left: 70%;
-            transform: translate(-50%, -50%);
-            width: 4px;
-            height: 4px;
-            background: #fff;
-            border-radius: 50%;
-            box-shadow:
-                0 0 6px #fff,
-                0 0 12px var(--noir-cyan),
-                0 0 20px var(--noir-cyan);
-            animation: eye-glow 3s ease-in-out infinite;
-        }
-
-        @keyframes eye-glow {
+        @keyframes eye-glow-pulse {
             0%, 100% { 
-                opacity: 1; 
-                box-shadow: 0 0 10px #fff, 0 0 20px var(--noir-cyan), 0 0 30px var(--noir-cyan); 
+                filter: drop-shadow(0 0 25px rgba(0, 240, 255, 0.6)) drop-shadow(0 0 15px rgba(0, 240, 255, 0.4));
             }
             50% { 
-                opacity: 0.7; 
-                box-shadow: 0 0 5px #fff, 0 0 10px var(--noir-cyan); 
+                filter: drop-shadow(0 0 35px rgba(139, 92, 246, 0.8)) drop-shadow(0 0 25px rgba(139, 92, 246, 0.6));
             }
         }
 
@@ -627,7 +593,7 @@
                     <span class="os">OS</span>
                 </h1>
                 <p class="hero-noir-tagline">
-                    The AI-Powered Operating System that thinks with you
+                    AI-Powered Operating with Personal Data Protection
                 </p>
                 <p class="hero-noir-subtitle">DUAL-AI ARCHITECTURE • COMPLETE PRIVACY • QUANTUM SECURITY</p>
 
@@ -653,13 +619,7 @@
             </div>
 
             <div class="hero-noir-visual">
-                <div class="ring-entity">
-                    <div class="ring-body">
-                        <div class="snake-head">
-                            <div class="ring-eye"></div>
-                        </div>
-                    </div>
-                </div>
+                <img src="assets/images/oroboros-logo.svg" alt="OROBOROS OS Logo" class="oroboros-svg-logo">
             </div>
         </div>
     </section>
