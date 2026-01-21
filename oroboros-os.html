@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OROBOROS OS V1.0 - AI-Powered Operating System | Oroboros Labs</title>
+    <meta name="description" content="OROBOROS OS: The ethical AI operating system. Run AI models locally, protect your privacy, and boost your workflow with built-in intelligent tools.">
+
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --os-primary: #0a0a12;
+            --os-accent: #050508;
+            --os-cyan: #00f0ff;
+            --os-purple: #8b5cf6;
+            --os-green: #10b981;
+            --os-orange: #f59e0b;
+            --os-white: #e0e0e0;
+        }
+
+        body {
+            background: #050508;
+        }
+
+        /* Hero Section */
+        .hero-os {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 120px 24px 100px;
+            position: relative;
+            overflow: hidden;
+            background:
+                radial-gradient(ellipse at 30% 20%, rgba(16, 185, 129, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 70% 80%, rgba(139, 92, 246, 0.1) 0%, transparent 50%),
+                linear-gradient(180deg, #050508 0%, #0a0a12 100%);
+        }
+
+        .hero-os::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                repeating-linear-gradient(
+                    0deg,
+                    transparent,
+                    transparent 2px,
+                    rgba(255, 255, 255, 0.01) 2px,
+                    rgba(255, 255, 255, 0.01) 4px
+                );
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .hero-os-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        @media (max-width: 1024px) {
+            .hero-os-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+        }
+
+        .hero-os-text h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 16px;
+            letter-spacing: -2px;
+        }
+
+        .hero-os-text h1 .oroboros {
+            display: block;
+            background: linear-gradient(135deg, #fff 0%, #888 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-os-text h1 .os {
+            display: block;
+            background: linear-gradient(135deg, var(--os-green) 0%, var(--os-cyan) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-os-version {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--os-green), var(--os-cyan));
+            color: #000;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 24px;
+        }
+
+        .hero-os-tagline {
+            font-size: 1.4rem;
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+            font-weight: 300;
+        }
+
+        .hero-os-subtitle {
+            font-size: 1rem;
+            color: var(--text-muted);
+            margin-bottom: 32px;
+            line-height: 1.7;
+        }
+
+        .hero-os-stats {
+            display: flex;
+            gap: 32px;
+            margin-bottom: 32px;
+        }
+
+        @media (max-width: 1024px) {
+            .hero-os-stats {
+                justify-content: center;
+            }
+        }
+
+        .os-stat {
+            text-align: center;
+        }
+
+        .os-stat-value {
+            font-size: 1.8rem;
+            font-weight: 700;
+            font-family: 'JetBrains Mono', monospace;
+            background: linear-gradient(135deg, #fff, var(--os-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .os-stat-label {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .hero-os-cta {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        @media (max-width: 1024px) {
+            .hero-os-cta {
+                justify-content: center;
+            }
+        }
+
+        .btn-os-primary {
+            background: linear-gradient(135deg, var(--os-green), var(--os-cyan));
+            color: #000;
+            padding: 16px 32px;
+            border-radius: 8px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 30px rgba(16, 185, 129, 0.3);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-os-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 40px rgba(16, 185, 129, 0.4);
+        }
+
+        .btn-os-secondary {
+            background: transparent;
+            color: var(--os-white);
+            padding: 14px 30px;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-os-secondary:hover {
+            border-color: var(--os-green);
+            background: rgba(16, 185, 129, 0.1);
+        }
+
+        /* Terminal Visual */
+        .hero-os-visual {
+            display: flex;
+            justify-content: center;
+        }
+
+        .terminal-window {
+            width: 100%;
+            max-width: 500px;
+            background: rgba(10, 10, 18, 0.95);
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        .terminal-header {
+            background: rgba(30, 30, 50, 0.8);
+            padding: 12px 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .terminal-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .terminal-dot.red { background: #ff5f56; }
+        .terminal-dot.yellow { background: #ffbd2e; }
+        .terminal-dot.green { background: #27ca40; }
+
+        .terminal-title {
+            flex: 1;
+            text-align: center;
+            font-size: 12px;
+            color: var(--text-muted);
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .terminal-body {
+            padding: 20px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 13px;
+            line-height: 1.8;
+            min-height: 300px;
+        }
+
+        .terminal-line {
+            margin-bottom: 8px;
+        }
+
+        .terminal-prompt {
+            color: var(--os-green);
+        }
+
+        .terminal-command {
+            color: #fff;
+        }
+
+        .terminal-output {
+            color: var(--text-secondary);
+        }
+
+        .terminal-success {
+            color: var(--os-green);
+        }
+
+        .terminal-info {
+            color: var(--os-cyan);
+        }
+
+        .terminal-cursor {
+            display: inline-block;
+            width: 8px;
+            height: 16px;
+            background: var(--os-green);
+            animation: blink 1s step-end infinite;
+            vertical-align: middle;
+        }
+
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+
+        /* Features Section */
+        .features-os {
+            padding: 120px 0;
+            background: linear-gradient(180deg, #0a0a12 0%, #050508 100%);
+        }
+
+        .features-os .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .section-header-os {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .section-header-os h2 {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+            background: linear-gradient(135deg, #fff, var(--os-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-header-os p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+
+        .features-grid-os {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 32px;
+        }
+
+        .feature-card-os {
+            background: linear-gradient(135deg, rgba(20, 20, 35, 0.6) 0%, rgba(10, 10, 20, 0.8) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            padding: 32px;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card-os:hover {
+            border-color: rgba(16, 185, 129, 0.3);
+            transform: translateY(-4px);
+        }
+
+        .feature-card-os h4 {
+            font-size: 1.2rem;
+            margin-bottom: 12px;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .feature-card-os h4 .icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--os-green), var(--os-cyan));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+        }
+
+        .feature-card-os p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 16px;
+        }
+
+        .feature-card-os code {
+            display: block;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+            padding: 12px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            color: var(--os-cyan);
+            overflow-x: auto;
+        }
+
+        /* Installation Section */
+        .install-section {
+            padding: 120px 0;
+            background: #050508;
+        }
+
+        .install-section .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .install-options {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-bottom: 48px;
+        }
+
+        @media (max-width: 900px) {
+            .install-options {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .install-option {
+            background: linear-gradient(135deg, rgba(20, 20, 35, 0.8) 0%, rgba(10, 10, 20, 0.9) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 32px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .install-option:hover {
+            border-color: var(--os-green);
+            transform: translateY(-4px);
+        }
+
+        .install-option h3 {
+            font-size: 1.3rem;
+            margin-bottom: 8px;
+            color: #fff;
+        }
+
+        .install-option p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+
+        .install-option code {
+            display: block;
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 8px;
+            padding: 16px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            color: var(--os-green);
+            text-align: left;
+            overflow-x: auto;
+        }
+
+        .install-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--os-green), var(--os-cyan));
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            margin: 0 auto 20px;
+        }
+
+        /* Apps Section */
+        .apps-section {
+            padding: 120px 0;
+            background: linear-gradient(180deg, #050508 0%, #0a0a12 100%);
+        }
+
+        .apps-section .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .apps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 24px;
+        }
+
+        .app-card {
+            background: rgba(20, 20, 35, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 24px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .app-card:hover {
+            border-color: rgba(16, 185, 129, 0.3);
+            background: rgba(20, 20, 35, 0.7);
+        }
+
+        .app-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--os-green), var(--os-purple));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            flex-shrink: 0;
+        }
+
+        .app-info h4 {
+            font-size: 1rem;
+            color: #fff;
+            margin-bottom: 4px;
+        }
+
+        .app-info p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* Docs Links */
+        .docs-section {
+            padding: 120px 0;
+            background: #0a0a12;
+        }
+
+        .docs-section .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .docs-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+
+        @media (max-width: 768px) {
+            .docs-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .docs-card {
+            background: linear-gradient(135deg, rgba(20, 20, 35, 0.8) 0%, rgba(10, 10, 20, 0.9) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 32px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: block;
+        }
+
+        .docs-card:hover {
+            border-color: var(--os-green);
+            transform: translateY(-4px);
+            box-shadow: 0 10px 40px rgba(16, 185, 129, 0.2);
+        }
+
+        .docs-card h3 {
+            font-size: 1.3rem;
+            color: #fff;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .docs-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .docs-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--os-green), var(--os-cyan));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+        }
+
+        /* Footer */
+        .footer-os {
+            background: #030305;
+            padding: 60px 0 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .footer-os .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            text-align: center;
+        }
+
+        .footer-logo-os {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .footer-logo-os .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--os-green), var(--os-cyan));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: #000;
+        }
+
+        .footer-links-os {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links-os a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links-os a:hover {
+            color: var(--os-green);
+        }
+
+        .footer-copyright {
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <span class="logo-icon" style="background: linear-gradient(135deg, #10b981, #00f0ff);">O</span>
+                <span class="logo-text">OROBOROS OS</span>
+            </a>
+            <div class="nav-links">
+                <a href="index.html">Oroboros Labs</a>
+                <a href="#features">Features</a>
+                <a href="#install">Install</a>
+                <a href="#docs">Documentation</a>
+                <a href="noir-shield.html" style="color: #00f0ff;">NOIR SHIELD</a>
+                <a href="https://github.com/oroboroslab/oroboros-os" class="nav-github">GitHub</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-os">
+        <div class="hero-os-content">
+            <div class="hero-os-text">
+                <span class="hero-os-version">V1.0 Public Release</span>
+                <h1>
+                    <span class="oroboros">OROBOROS</span>
+                    <span class="os">OS</span>
+                </h1>
+                <p class="hero-os-tagline">The AI-Powered Operating System</p>
+                <p class="hero-os-subtitle">
+                    Run AI models locally. Protect your privacy. Built-in ethics compliance.
+                    Docker-ready, USB bootable, and completely open source.
+                </p>
+
+                <div class="hero-os-stats">
+                    <div class="os-stat">
+                        <span class="os-stat-value">100+</span>
+                        <span class="os-stat-label">AI Models</span>
+                    </div>
+                    <div class="os-stat">
+                        <span class="os-stat-value">Level 99</span>
+                        <span class="os-stat-label">Foundation</span>
+                    </div>
+                    <div class="os-stat">
+                        <span class="os-stat-value">0</span>
+                        <span class="os-stat-label">Telemetry</span>
+                    </div>
+                </div>
+
+                <div class="hero-os-cta">
+                    <a href="https://github.com/oroboroslab/oroboros-os" class="btn-os-primary">
+                        <span>&#128187;</span> View on GitHub
+                    </a>
+                    <a href="#install" class="btn-os-secondary">
+                        <span>&#128230;</span> Quick Install
+                    </a>
+                </div>
+            </div>
+
+            <div class="hero-os-visual">
+                <div class="terminal-window">
+                    <div class="terminal-header">
+                        <div class="terminal-dot red"></div>
+                        <div class="terminal-dot yellow"></div>
+                        <div class="terminal-dot green"></div>
+                        <span class="terminal-title">oroboros-os ~ terminal</span>
+                    </div>
+                    <div class="terminal-body">
+                        <div class="terminal-line">
+                            <span class="terminal-prompt">$ </span>
+                            <span class="terminal-command">docker pull oroboroslab/oroboros-os:v1.0</span>
+                        </div>
+                        <div class="terminal-line">
+                            <span class="terminal-output">Pulling from oroboroslab/oroboros-os</span>
+                        </div>
+                        <div class="terminal-line">
+                            <span class="terminal-success">Status: Downloaded newer image</span>
+                        </div>
+                        <div class="terminal-line">&nbsp;</div>
+                        <div class="terminal-line">
+                            <span class="terminal-prompt">$ </span>
+                            <span class="terminal-command">docker run -it -p 8080:8080 oroboroslab/oroboros-os:v1.0</span>
+                        </div>
+                        <div class="terminal-line">
+                            <span class="terminal-info">╔═══════════════════════════════════════╗</span>
+                        </div>
+                        <div class="terminal-line">
+                            <span class="terminal-info">║  OROBOROS OS V1.0 - PUBLIC RELEASE   ║</span>
+                        </div>
+                        <div class="terminal-line">
+                            <span class="terminal-info">║       Level 99 Foundation            ║</span>
+                        </div>
+                        <div class="terminal-line">
+                            <span class="terminal-info">╚═══════════════════════════════════════╝</span>
+                        </div>
+                        <div class="terminal-line">
+                            <span class="terminal-success">OROBOROS OS is ready!</span>
+                        </div>
+                        <div class="terminal-line">
+                            <span class="terminal-prompt">$ </span>
+                            <span class="terminal-cursor"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features-os">
+        <div class="container">
+            <div class="section-header-os">
+                <h2>Developer Features</h2>
+                <p>Built for developers, powered by AI</p>
+            </div>
+
+            <div class="features-grid-os">
+                <div class="feature-card-os">
+                    <h4><span class="icon">&#129302;</span> Ollama Integration</h4>
+                    <p>Run 100+ open-source AI models locally with Ollama. Llama 3, Mistral, CodeLlama, and more. No cloud required.</p>
+                    <code>ollama pull llama3.2<br>ollama run llama3.2</code>
+                </div>
+
+                <div class="feature-card-os">
+                    <h4><span class="icon">&#128274;</span> Ethics Compliance</h4>
+                    <p>Built-in ethics validation for all AI operations. Content filtering, input validation, and audit logging.</p>
+                    <code>from oroboros.ethics import EthicsValidator<br>validator = EthicsValidator(mode="standard")</code>
+                </div>
+
+                <div class="feature-card-os">
+                    <h4><span class="icon">&#128230;</span> Docker Native</h4>
+                    <p>Container-first architecture. Pull and run in seconds. GPU support with NVIDIA Container Toolkit.</p>
+                    <code>docker run -it --gpus all \<br>  oroboroslab/oroboros-os:v1.0</code>
+                </div>
+
+                <div class="feature-card-os">
+                    <h4><span class="icon">&#128187;</span> Multi-Provider AI</h4>
+                    <p>Unified API for Ollama, LM Studio, OpenAI, and Anthropic. Switch providers with one line of code.</p>
+                    <code>from oroboros.ai import AIEngine<br>engine = AIEngine(provider="ollama")</code>
+                </div>
+
+                <div class="feature-card-os">
+                    <h4><span class="icon">&#128272;</span> Privacy First</h4>
+                    <p>Local-only mode blocks all network access. Zero telemetry. Your data never leaves your device.</p>
+                    <code>OROBOROS_PRIVACY_MODE=local_only<br>OROBOROS_TELEMETRY=disabled</code>
+                </div>
+
+                <div class="feature-card-os">
+                    <h4><span class="icon">&#9881;</span> Level 99 Architecture</h4>
+                    <p>Public Foundation tier with full AI capabilities. Level 1000 orchestration runs encrypted on backend.</p>
+                    <code>level: 99  # Public Foundation<br>backend_orchestration: encrypted</code>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Install Section -->
+    <section id="install" class="install-section">
+        <div class="container">
+            <div class="section-header-os">
+                <h2>Quick Install</h2>
+                <p>Get running in under 5 minutes</p>
+            </div>
+
+            <div class="install-options">
+                <div class="install-option">
+                    <div class="install-icon">&#128051;</div>
+                    <h3>Docker</h3>
+                    <p>Fastest way to get started</p>
+                    <code>docker pull oroboroslab/oroboros-os:v1.0<br><br>docker run -it -p 8080:8080 \<br>  oroboroslab/oroboros-os:v1.0</code>
+                </div>
+
+                <div class="install-option">
+                    <div class="install-icon">&#128190;</div>
+                    <h3>Live USB</h3>
+                    <p>Boot directly from USB drive</p>
+                    <code># Download ISO<br>wget oroboros-os-v1.0.iso<br><br># Flash to USB<br>sudo dd if=*.iso of=/dev/sdX bs=4M</code>
+                </div>
+
+                <div class="install-option">
+                    <div class="install-icon">&#128421;</div>
+                    <h3>Source</h3>
+                    <p>Clone and build from source</p>
+                    <code>git clone github.com/oroboroslab/oroboros-os<br>cd oroboros-os<br>pip install -r requirements.txt<br>python -m oroboros serve</code>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Apps Section -->
+    <section class="apps-section">
+        <div class="container">
+            <div class="section-header-os">
+                <h2>Included Applications</h2>
+                <p>Everything you need for AI-powered productivity</p>
+            </div>
+
+            <div class="apps-grid">
+                <div class="app-card">
+                    <div class="app-icon">&#128172;</div>
+                    <div class="app-info">
+                        <h4>AI Chat</h4>
+                        <p>Personal AI assistant</p>
+                    </div>
+                </div>
+                <div class="app-card">
+                    <div class="app-icon">&#129520;</div>
+                    <div class="app-info">
+                        <h4>Model Manager</h4>
+                        <p>Download & manage AI models</p>
+                    </div>
+                </div>
+                <div class="app-card">
+                    <div class="app-icon">&#128196;</div>
+                    <div class="app-info">
+                        <h4>Document AI</h4>
+                        <p>Analyze PDFs & documents</p>
+                    </div>
+                </div>
+                <div class="app-card">
+                    <div class="app-icon">&#128187;</div>
+                    <div class="app-info">
+                        <h4>Code Assistant</h4>
+                        <p>AI-powered coding help</p>
+                    </div>
+                </div>
+                <div class="app-card">
+                    <div class="app-icon">&#128424;</div>
+                    <div class="app-info">
+                        <h4>Terminal AI</h4>
+                        <p>Smart command line</p>
+                    </div>
+                </div>
+                <div class="app-card">
+                    <div class="app-icon">&#128202;</div>
+                    <div class="app-info">
+                        <h4>System Monitor</h4>
+                        <p>Resource usage tracking</p>
+                    </div>
+                </div>
+                <div class="app-card">
+                    <div class="app-icon">&#128161;</div>
+                    <div class="app-info">
+                        <h4>Prompt Studio</h4>
+                        <p>Design & test prompts</p>
+                    </div>
+                </div>
+                <div class="app-card">
+                    <div class="app-icon">&#128300;</div>
+                    <div class="app-info">
+                        <h4>Research Assistant</h4>
+                        <p>Summarize & analyze</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Documentation Section -->
+    <section id="docs" class="docs-section">
+        <div class="container">
+            <div class="section-header-os">
+                <h2>Documentation</h2>
+                <p>Everything you need to get started</p>
+            </div>
+
+            <div class="docs-grid">
+                <a href="https://github.com/oroboroslab/oroboros-os/blob/main/README.md" class="docs-card">
+                    <h3><span class="docs-icon">&#128218;</span> README</h3>
+                    <p>Overview, features, and quick start guide for OROBOROS OS.</p>
+                </a>
+                <a href="https://github.com/oroboroslab/oroboros-os/blob/main/QUICK_START.md" class="docs-card">
+                    <h3><span class="docs-icon">&#9889;</span> Quick Start</h3>
+                    <p>Get running in 10 minutes with step-by-step instructions.</p>
+                </a>
+                <a href="https://github.com/oroboroslab/oroboros-os/blob/main/USER_GUIDE.md" class="docs-card">
+                    <h3><span class="docs-icon">&#128221;</span> User Guide</h3>
+                    <p>Complete guide to all features and applications.</p>
+                </a>
+                <a href="https://github.com/oroboroslab/oroboros-os" class="docs-card">
+                    <h3><span class="docs-icon">&#128187;</span> GitHub Repository</h3>
+                    <p>Source code, issues, and contributions.</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer-os">
+        <div class="container">
+            <div class="footer-logo-os">
+                <span class="logo-icon">O</span>
+                <span>OROBOROS OS</span>
+            </div>
+            <div class="footer-links-os">
+                <a href="index.html">Oroboros Labs</a>
+                <a href="noir-shield.html">NOIR SHIELD</a>
+                <a href="oroboros9.html">OROBOROS-9</a>
+                <a href="https://github.com/oroboroslab/oroboros-os">GitHub</a>
+                <a href="https://hub.docker.com/r/oroboroslab/oroboros-os">Docker Hub</a>
+            </div>
+            <p class="footer-copyright">
+                &copy; 2024-2026 Oroboros Labs. All rights reserved.<br>
+                OROBOROS OS V1.0 - Level 99 Foundation | Apache 2.0 License
+            </p>
+        </div>
+    </footer>
+
+    <script src="assets/js/particles.js"></script>
+</body>
+</html>
