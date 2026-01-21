@@ -1,0 +1,52 @@
+# GitHub Pages Configuration for Oroboros Labs
+baseurl: ""
+url: "https://oroboroslab.github.io"
+
+title: "Oroboros Labs"
+description: "Quantum Physics & AI Consciousness Research"
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+
+# Theme settings
+theme: jekyll-theme-cayman
+
+# Exclude from processing
+exclude:
+  - README.md
+  - LICENSE
+  - CNAME
+  - .git
+  - .gitignore
+
+# Plugins
+plugins:
+  - jekyll-sitemap
+  - jekyll-feed
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: "default"
+
+# Collections
+collections:
+  projects:
+    output: true
+    permalink: /projects/:name/
+
+# Site navigation
+navigation:
+  - title: "Home"
+    url: "/"
+  - title: "OROBOROS OS"
+    url: "/oroboros-os/"
+  - title: "NOIR SHIELD"
+    url: "/noir-shield.html"
+  - title: "AION"
+    url: "/aion.html"
+  - title: "Connection Core"
+    url: "/connection-core.html"
