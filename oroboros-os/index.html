@@ -328,42 +328,17 @@
 
         .ring-body {
             position: absolute;
-            top: 40px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 120px;
-            height: 180px;
-            background: linear-gradient(180deg,
-                rgba(10, 10, 10, 0.95) 0%,
-                rgba(5, 5, 5, 0.8) 50%,
-                transparent 100%
-            );
-            border-radius: 50%;
-            border: 2px solid rgba(255, 255, 255, 0.1);
-            box-shadow:
-                0 0 40px rgba(0, 240, 255, 0.1),
-                inset 0 0 40px rgba(0, 0, 0, 0.8);
-        }
-
-        .ring-head {
-            position: absolute;
-            top: 60px;
+            top: 80px;
             left: 50%;
             transform: translateX(-50%);
             width: 100px;
             height: 100px;
-        }
-
-        .ring-circle {
-            width: 80px;
-            height: 80px;
-            border: 3px solid rgba(255, 255, 255, 0.2);
+            background: rgba(10, 10, 10, 0.9);
             border-radius: 50%;
-            position: relative;
-            margin: 0 auto;
+            border: 2px solid rgba(255, 255, 255, 0.1);
             box-shadow:
-                0 0 30px rgba(0, 240, 255, 0.2),
-                inset 0 0 30px rgba(0, 0, 0, 0.5);
+                0 0 30px rgba(0, 240, 255, 0.1),
+                inset 0 0 30px rgba(0, 0, 0, 0.8);
         }
 
         .ring-eye {
@@ -371,14 +346,14 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 8px;
-            height: 8px;
+            width: 6px;
+            height: 6px;
             background: #fff;
             border-radius: 50%;
             box-shadow:
-                0 0 10px #fff,
-                0 0 20px var(--noir-cyan),
-                0 0 30px var(--noir-cyan);
+                0 0 8px #fff,
+                0 0 15px var(--noir-cyan),
+                0 0 25px var(--noir-cyan);
             animation: eye-glow 3s ease-in-out infinite;
         }
 
@@ -461,11 +436,15 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 32px;
+            font-size: 18px;
             margin-bottom: 24px;
             background: linear-gradient(135deg, var(--noir-cyan), var(--noir-purple));
             color: #000;
             font-weight: 700;
+            text-align: center;
+            line-height: 1.2;
+            word-wrap: break-word;
+            padding: 8px;
         }
 
         .feature-card h3 {
@@ -666,20 +645,12 @@
             <div class="hero-noir-visual">
                 <div class="ring-entity">
                     <div class="ring-body">
-                        <div class="ring-head">
-                            <div class="ring-circle">
-                                <div class="ring-eye"></div>
-                            </div>
-                        </div>
+                        <div class="ring-eye"></div>
                     </div>
                 </div>
                 <div class="ring-entity">
                     <div class="ring-body">
-                        <div class="ring-head">
-                            <div class="ring-circle">
-                                <div class="ring-eye"></div>
-                            </div>
-                        </div>
+                        <div class="ring-eye"></div>
                     </div>
                 </div>
             </div>
