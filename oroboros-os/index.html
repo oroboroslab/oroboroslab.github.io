@@ -338,14 +338,14 @@
 
         .snake-head {
             position: absolute;
-            top: 25px;
+            top: 50%;
             left: 50%;
-            transform: translateX(-50%);
-            width: 30px;
-            height: 30px;
+            transform: translate(-50%, -50%) rotate(60deg);
+            width: 40px;
+            height: 25px;
             background: rgba(10, 10, 10, 0.95);
-            border-radius: 50%;
-            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50% 50% 50% 50%;
+            transform-origin: center;
             box-shadow:
                 0 0 20px rgba(0, 240, 255, 0.3),
                 inset 0 0 20px rgba(0, 0, 0, 0.8);
@@ -354,7 +354,7 @@
         .ring-eye {
             position: absolute;
             top: 50%;
-            left: 50%;
+            left: 70%;
             transform: translate(-50%, -50%);
             width: 4px;
             height: 4px;
