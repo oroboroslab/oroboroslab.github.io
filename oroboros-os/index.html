@@ -311,14 +311,10 @@
         }
 
         .ring-entity {
-            width: 200px;
-            height: 280px;
+            width: 250px;
+            height: 350px;
             position: relative;
             animation: float-ring 6s ease-in-out infinite;
-        }
-
-        .ring-entity:nth-child(2) {
-            animation-delay: -3s;
         }
 
         @keyframes float-ring {
@@ -328,17 +324,31 @@
 
         .ring-body {
             position: absolute;
-            top: 80px;
+            top: 100px;
             left: 50%;
             transform: translateX(-50%);
-            width: 100px;
-            height: 100px;
-            background: rgba(10, 10, 10, 0.9);
+            width: 150px;
+            height: 150px;
+            border: 8px solid rgba(10, 10, 10, 0.9);
             border-radius: 50%;
-            border: 2px solid rgba(255, 255, 255, 0.1);
             box-shadow:
-                0 0 30px rgba(0, 240, 255, 0.1),
-                inset 0 0 30px rgba(0, 0, 0, 0.8);
+                0 0 40px rgba(0, 240, 255, 0.2),
+                inset 0 0 40px rgba(0, 0, 0, 0.8);
+        }
+
+        .snake-head {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 30px;
+            height: 30px;
+            background: rgba(10, 10, 10, 0.95);
+            border-radius: 50%;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            box-shadow:
+                0 0 20px rgba(0, 240, 255, 0.3),
+                inset 0 0 20px rgba(0, 0, 0, 0.8);
         }
 
         .ring-eye {
@@ -346,14 +356,14 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 6px;
-            height: 6px;
+            width: 4px;
+            height: 4px;
             background: #fff;
             border-radius: 50%;
             box-shadow:
-                0 0 8px #fff,
-                0 0 15px var(--noir-cyan),
-                0 0 25px var(--noir-cyan);
+                0 0 6px #fff,
+                0 0 12px var(--noir-cyan),
+                0 0 20px var(--noir-cyan);
             animation: eye-glow 3s ease-in-out infinite;
         }
 
@@ -645,12 +655,9 @@
             <div class="hero-noir-visual">
                 <div class="ring-entity">
                     <div class="ring-body">
-                        <div class="ring-eye"></div>
-                    </div>
-                </div>
-                <div class="ring-entity">
-                    <div class="ring-body">
-                        <div class="ring-eye"></div>
+                        <div class="snake-head">
+                            <div class="ring-eye"></div>
+                        </div>
                     </div>
                 </div>
             </div>
