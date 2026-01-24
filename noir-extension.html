@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NOIR Security Extension - Firefox Browser Security | Oroboros Labs</title>
+    <meta name="description"
+        content="NOIR Security Extension for Firefox: AI-powered security with Claude integration, tracker blocking, fingerprint protection, and encrypted sessions.">
+
+    <meta property="og:title" content="NOIR Security Extension - Firefox Browser Security">
+    <meta property="og:description" content="Transform Firefox into a security command center with AI-powered protection.">
+    <meta property="og:type" content="website">
+
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --noir-primary: #1a1a2e;
+            --noir-accent: #0f0f1a;
+            --noir-glow: rgba(255, 255, 255, 0.08);
+            --noir-white: #e0e0e0;
+            --noir-cyan: #00ffcc;
+            --noir-purple: #cc00ff;
+            --noir-red: #ff3366;
+            --noir-gradient: linear-gradient(135deg, #00ffcc 0%, #cc00ff 100%);
+        }
+
+        body {
+            background: #050508;
+        }
+
+        /* Hero Section */
+        .hero-extension {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 140px 24px 100px;
+            position: relative;
+            overflow: hidden;
+            background:
+                radial-gradient(ellipse at 30% 20%, rgba(0, 255, 204, 0.12) 0%, transparent 50%),
+                radial-gradient(ellipse at 70% 80%, rgba(204, 0, 255, 0.1) 0%, transparent 50%),
+                linear-gradient(180deg, #050508 0%, #0a0a12 100%);
+        }
+
+        .hero-extension::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                repeating-linear-gradient(0deg,
+                    transparent,
+                    transparent 2px,
+                    rgba(255, 255, 255, 0.01) 2px,
+                    rgba(255, 255, 255, 0.01) 4px);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .hero-extension-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        @media (max-width: 1024px) {
+            .hero-extension-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+        }
+
+        .hero-extension-text h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            letter-spacing: -1px;
+        }
+
+        .hero-extension-text h1 .noir {
+            display: block;
+            background: linear-gradient(135deg, #fff 0%, #888 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-extension-text h1 .extension {
+            display: block;
+            background: var(--noir-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-extension-tagline {
+            font-size: 1.4rem;
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+            font-weight: 300;
+        }
+
+        .hero-extension-subtitle {
+            font-size: 1rem;
+            color: var(--text-muted);
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+
+        .firefox-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 12px 24px;
+            border-radius: 50px;
+            margin-bottom: 32px;
+        }
+
+        .firefox-badge svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        .firefox-badge span {
+            font-size: 14px;
+            color: var(--noir-white);
+            font-weight: 500;
+        }
+
+        .hero-extension-cta {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        @media (max-width: 1024px) {
+            .hero-extension-cta {
+                justify-content: center;
+            }
+        }
+
+        .btn-extension-primary {
+            background: var(--noir-gradient);
+            color: #000;
+            padding: 16px 32px;
+            border-radius: 8px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 30px rgba(0, 255, 204, 0.3);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-extension-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 40px rgba(0, 255, 204, 0.4);
+        }
+
+        .btn-extension-secondary {
+            background: transparent;
+            color: var(--noir-white);
+            padding: 14px 30px;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .btn-extension-secondary:hover {
+            border-color: var(--noir-cyan);
+            background: rgba(0, 255, 204, 0.1);
+        }
+
+        /* Extension Preview */
+        .extension-preview {
+            position: relative;
+        }
+
+        .extension-mockup {
+            background: linear-gradient(180deg, #121212 0%, #0a0a0a 100%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            max-width: 320px;
+            margin: 0 auto;
+        }
+
+        .mockup-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 16px;
+        }
+
+        .mockup-logo {
+            width: 36px;
+            height: 36px;
+            background: var(--noir-gradient);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .mockup-logo svg {
+            width: 20px;
+            height: 20px;
+            fill: #000;
+        }
+
+        .mockup-title h3 {
+            font-size: 14px;
+            color: var(--noir-white);
+            margin: 0;
+            background: var(--noir-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .mockup-title span {
+            font-size: 10px;
+            color: var(--text-muted);
+        }
+
+        .mockup-status {
+            width: 10px;
+            height: 10px;
+            background: var(--noir-cyan);
+            border-radius: 50%;
+            margin-left: auto;
+            box-shadow: 0 0 10px var(--noir-cyan);
+            animation: pulse-status 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse-status {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .mockup-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .mockup-stat {
+            text-align: center;
+            padding: 12px 8px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 8px;
+        }
+
+        .mockup-stat-value {
+            font-size: 18px;
+            font-weight: 700;
+            font-family: 'JetBrains Mono', monospace;
+            background: var(--noir-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .mockup-stat-label {
+            font-size: 9px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .mockup-buttons {
+            display: flex;
+            gap: 8px;
+        }
+
+        .mockup-btn {
+            flex: 1;
+            padding: 10px;
+            border-radius: 6px;
+            font-size: 11px;
+            font-weight: 600;
+            text-align: center;
+            border: none;
+        }
+
+        .mockup-btn.primary {
+            background: var(--noir-gradient);
+            color: #000;
+        }
+
+        .mockup-btn.secondary {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--noir-white);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Features Section */
+        .features-section {
+            padding: 100px 24px;
+            background: linear-gradient(180deg, #0a0a12 0%, #050508 100%);
+        }
+
+        .features-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .features-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .features-header h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            margin-bottom: 16px;
+            background: var(--noir-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .features-header p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        @media (max-width: 900px) {
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .feature-card {
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 16px;
+            padding: 32px;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            border-color: rgba(0, 255, 204, 0.3);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--noir-gradient);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        .feature-card h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: var(--noir-white);
+        }
+
+        .feature-card p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        /* How It Works */
+        .how-section {
+            padding: 100px 24px;
+            background: #050508;
+        }
+
+        .how-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .how-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .how-header h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: var(--noir-white);
+        }
+
+        .how-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+        }
+
+        .how-step {
+            display: flex;
+            gap: 24px;
+            align-items: flex-start;
+            padding: 32px;
+            background: linear-gradient(135deg, rgba(0, 255, 204, 0.03) 0%, rgba(204, 0, 255, 0.03) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 16px;
+        }
+
+        .step-number {
+            width: 48px;
+            height: 48px;
+            background: var(--noir-gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: 700;
+            color: #000;
+            flex-shrink: 0;
+        }
+
+        .step-content h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--noir-white);
+        }
+
+        .step-content p {
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        .step-content code {
+            background: rgba(0, 255, 204, 0.1);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9em;
+            color: var(--noir-cyan);
+        }
+
+        /* Requirements Section */
+        .requirements-section {
+            padding: 80px 24px;
+            background: linear-gradient(180deg, #050508 0%, #0a0a12 100%);
+        }
+
+        .requirements-container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .requirements-container h2 {
+            font-size: 1.8rem;
+            margin-bottom: 32px;
+            color: var(--noir-white);
+        }
+
+        .requirements-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        @media (max-width: 600px) {
+            .requirements-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .requirement-item {
+            padding: 24px;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 12px;
+        }
+
+        .requirement-item h4 {
+            font-size: 1rem;
+            color: var(--noir-cyan);
+            margin-bottom: 8px;
+        }
+
+        .requirement-item p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 100px 24px;
+            background:
+                radial-gradient(ellipse at 50% 50%, rgba(0, 255, 204, 0.08) 0%, transparent 60%),
+                #050508;
+            text-align: center;
+        }
+
+        .cta-container {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .cta-container h2 {
+            font-size: clamp(2rem, 4vw, 2.5rem);
+            font-weight: 700;
+            margin-bottom: 16px;
+            background: var(--noir-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .cta-container p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 32px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* Back Link */
+        .back-link {
+            position: fixed;
+            top: 24px;
+            left: 24px;
+            z-index: 1000;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: color 0.3s ease;
+        }
+
+        .back-link:hover {
+            color: var(--noir-cyan);
+        }
+
+        /* Footer */
+        .extension-footer {
+            padding: 40px 24px;
+            background: #030305;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-brand {
+            margin-bottom: 16px;
+        }
+
+        .footer-brand strong {
+            background: var(--noir-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 1.2rem;
+        }
+
+        .footer-motto {
+            color: var(--text-muted);
+            font-style: italic;
+            font-size: 0.9rem;
+            margin-bottom: 16px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 24px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--noir-cyan);
+        }
+
+        .footer-resonance {
+            margin-top: 24px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Back Link -->
+    <a href="noir-shield.html" class="back-link">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M19 12H5M12 19l-7-7 7-7"/>
+        </svg>
+        Back to NOIR Shield
+    </a>
+
+    <!-- Hero Section -->
+    <section class="hero-extension">
+        <div class="hero-extension-content">
+            <div class="hero-extension-text">
+                <div class="firefox-badge">
+                    <svg viewBox="0 0 24 24" fill="#FF7139">
+                        <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 5.075c.357.597.586 1.263.675 1.955-.468-.263-1.027-.444-1.65-.444-.24 0-.473.025-.698.072-.015-.032-.03-.064-.047-.095-.493-.895-1.308-1.56-2.277-1.858.744-.21 1.552-.21 2.296 0 .652.18 1.247.497 1.701.37zm-8.42-.195c1.074-.223 2.19-.124 3.207.285-.973.33-1.785 1.002-2.282 1.88-.025.044-.048.089-.07.134a3.29 3.29 0 0 0-1.218-.233c-.483 0-.944.103-1.36.29.15-.82.52-1.583 1.063-2.21.207-.131.428-.248.66-.346zM5.4 8.523c.164-.567.422-1.1.758-1.58.22.442.543.83.945 1.13-.235.38-.42.791-.547 1.223a5.06 5.06 0 0 1-.254-.227 4.53 4.53 0 0 1-.902-1.546zm.742 7.172a6.89 6.89 0 0 1-.892-2.903c.32.178.673.31 1.047.39-.068.638-.035 1.284.098 1.913a5.5 5.5 0 0 0-.253.6zm1.23 2.198a6.898 6.898 0 0 1-1.054-1.77c.267.047.54.072.818.072.095 0 .19-.003.283-.01.2.613.493 1.188.868 1.708h-.915zm10.126-.178c-.36.61-.823 1.152-1.365 1.604a5.55 5.55 0 0 0 .553-1.686c.08.017.16.032.241.046.193.027.39.04.59.04l-.02-.004zm1.74-2.66a6.88 6.88 0 0 1-.652 2.02 3.29 3.29 0 0 1-1.13-.432c.15-.498.232-1.02.242-1.552.55-.04 1.076-.167 1.56-.372l-.02.337zm.346-2.85c-.347.247-.73.443-1.138.582a5.54 5.54 0 0 0-.584-1.872c.473-.077.92-.227 1.328-.442.217.55.35 1.133.394 1.732z"/>
+                    </svg>
+                    <span>Firefox Extension</span>
+                </div>
+
+                <h1>
+                    <span class="noir">NOIR SECURITY</span>
+                    <span class="extension">EXTENSION</span>
+                </h1>
+
+                <p class="hero-extension-tagline">AI-Powered Browser Security</p>
+
+                <p class="hero-extension-subtitle">
+                    Transform Firefox into a security command center. Block trackers, protect against fingerprinting,
+                    chat with Claude AI, and execute code in secure Docker containers.
+                </p>
+
+                <div class="hero-extension-cta">
+                    <a href="https://github.com/oroboroslab/noir-browser-firefox/releases" class="btn-extension-primary" target="_blank">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/>
+                        </svg>
+                        Download Extension
+                    </a>
+                    <a href="https://github.com/oroboroslab/noir-browser-firefox" class="btn-extension-secondary" target="_blank">
+                        View on GitHub
+                    </a>
+                </div>
+            </div>
+
+            <div class="extension-preview">
+                <div class="extension-mockup">
+                    <div class="mockup-header">
+                        <div class="mockup-logo">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                            </svg>
+                        </div>
+                        <div class="mockup-title">
+                            <h3>NOIR Security</h3>
+                            <span>v1.0.0 Firefox</span>
+                        </div>
+                        <div class="mockup-status"></div>
+                    </div>
+                    <div class="mockup-stats">
+                        <div class="mockup-stat">
+                            <div class="mockup-stat-value">847</div>
+                            <div class="mockup-stat-label">Blocked</div>
+                        </div>
+                        <div class="mockup-stat">
+                            <div class="mockup-stat-value">3</div>
+                            <div class="mockup-stat-label">Containers</div>
+                        </div>
+                        <div class="mockup-stat">
+                            <div class="mockup-stat-value">Active</div>
+                            <div class="mockup-stat-label">Status</div>
+                        </div>
+                    </div>
+                    <div class="mockup-buttons">
+                        <div class="mockup-btn primary">AI Chat</div>
+                        <div class="mockup-btn secondary">Container</div>
+                        <div class="mockup-btn secondary">Wipe</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section">
+        <div class="features-container">
+            <div class="features-header">
+                <h2>Security Features</h2>
+                <p>Comprehensive protection powered by the NOIR Security Grid</p>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🛡️</div>
+                    <h3>Tracker Blocking</h3>
+                    <p>Automatically blocks 50+ known tracking domains including Google Analytics, Facebook Pixel, Hotjar, Mixpanel, Segment, Amplitude, and more. Uses Firefox's webRequest API to intercept and cancel tracking requests before they leave your browser.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Fingerprint Protection</h3>
+                    <p>Real-time monitoring of fingerprinting attempts. Detects canvas toDataURL calls, WebGL renderer queries (UNMASKED_VENDOR/RENDERER), and AudioContext-based fingerprinting. Alerts you when sites try to identify your device.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🤖</div>
+                    <h3>Claude AI Integration</h3>
+                    <p>Full Anthropic API integration with Claude Sonnet 4. Chat directly in your browser with context preservation, code formatting, and tool use support. Analyze websites, write code, get security advice - all locally processed with your API key.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🐳</div>
+                    <h3>Docker Sandbox</h3>
+                    <p>Execute Python, JavaScript, and Bash in isolated containers via the MCP (Model Context Protocol) server. Containers have no network access, 512MB memory limits, and 50% CPU caps. Auto-cleanup after 5 minutes of inactivity.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🧹</div>
+                    <h3>URL Sanitization</h3>
+                    <p>Automatically detects and strips 20+ tracking parameters: utm_source, utm_medium, utm_campaign, fbclid, gclid, mc_eid, msclkid, and more. Clean URLs are redirected seamlessly without breaking page functionality.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🗑️</div>
+                    <h3>Session Wipe</h3>
+                    <p>DOD 5220.22-M compliant 3-pass secure deletion. Wipes IndexedDB, localStorage, cookies, session storage, Docker containers, and conversation history. One-click or keyboard shortcut (Alt+Shift+W) for instant privacy.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">📦</div>
+                    <h3>Firefox Containers</h3>
+                    <p>Creates a dedicated "NOIR Secure" container tab with green fingerprint icon. AI sessions and secure browsing are isolated from your regular cookies and storage. Uses Firefox's contextualIdentities API for native isolation.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🔐</div>
+                    <h3>Encrypted Storage</h3>
+                    <p>All conversation history encrypted with AES-256-GCM using the Web Crypto API. Encryption keys are generated per-session and stored in localStorage. Data at rest is always encrypted in IndexedDB.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">⌨️</div>
+                    <h3>Keyboard Shortcuts</h3>
+                    <p>Alt+Shift+N opens the security panel. Alt+Shift+C opens Claude AI chat in a new tab. Alt+Shift+S toggles strict security mode. Alt+Shift+W triggers immediate session wipe. All shortcuts customizable in Firefox settings.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Details Section -->
+    <section class="technical-section" style="padding: 80px 24px; background: linear-gradient(180deg, #050508 0%, #0a0a12 100%);">
+        <div style="max-width: 1000px; margin: 0 auto;">
+            <h2 style="text-align: center; font-size: 2rem; margin-bottom: 48px; background: var(--noir-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Technical Architecture</h2>
+
+            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px;">
+                <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); border-radius: 12px; padding: 24px;">
+                    <h3 style="color: var(--noir-cyan); margin-bottom: 16px; font-size: 1.1rem;">Background Service Worker</h3>
+                    <ul style="color: var(--text-muted); line-height: 1.8; padding-left: 20px;">
+                        <li>Persistent background script handles all security operations</li>
+                        <li>WebSocket connection to MCP server on port 8421</li>
+                        <li>Manages conversation history and API key storage</li>
+                        <li>Broadcasts blocked request counts to popup in real-time</li>
+                        <li>Auto-reconnects to MCP server with 5-second retry</li>
+                    </ul>
+                </div>
+
+                <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); border-radius: 12px; padding: 24px;">
+                    <h3 style="color: var(--noir-cyan); margin-bottom: 16px; font-size: 1.1rem;">Content Scripts</h3>
+                    <ul style="color: var(--text-muted); line-height: 1.8; padding-left: 20px;">
+                        <li><strong>security_monitor.js</strong> - Hooks into Canvas, WebGL, and Audio APIs</li>
+                        <li><strong>noir_injector.js</strong> - Removes tracking pixels and hidden iframes</li>
+                        <li>Runs at document_start for earliest interception</li>
+                        <li>Reports fingerprinting attempts to background service</li>
+                        <li>Injects in all frames including iframes</li>
+                    </ul>
+                </div>
+
+                <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); border-radius: 12px; padding: 24px;">
+                    <h3 style="color: var(--noir-cyan); margin-bottom: 16px; font-size: 1.1rem;">Request Interception</h3>
+                    <ul style="color: var(--text-muted); line-height: 1.8; padding-left: 20px;">
+                        <li>webRequest.onBeforeRequest blocks tracking domains</li>
+                        <li>webRequest.onBeforeSendHeaders adds DNT and Sec-GPC headers</li>
+                        <li>webRequest.onHeadersReceived strips third-party cookies</li>
+                        <li>Pattern matching for tracking pixels (/pixel, /beacon, /collect)</li>
+                        <li>Redirect-based URL parameter stripping</li>
+                    </ul>
+                </div>
+
+                <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); border-radius: 12px; padding: 24px;">
+                    <h3 style="color: var(--noir-cyan); margin-bottom: 16px; font-size: 1.1rem;">MCP Server (Python)</h3>
+                    <ul style="color: var(--text-muted); line-height: 1.8; padding-left: 20px;">
+                        <li>aiohttp-based async WebSocket server</li>
+                        <li>Docker SDK integration for container management</li>
+                        <li>Sandboxed execution: no network, memory/CPU limits</li>
+                        <li>Supports Python 3.11, Node.js 20, Ubuntu 22.04 images</li>
+                        <li>Automatic container cleanup and session purging</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div style="margin-top: 48px; text-align: center;">
+                <h3 style="color: var(--noir-white); margin-bottom: 24px;">Blocked Domain Categories</h3>
+                <div style="display: flex; flex-wrap: wrap; gap: 12px; justify-content: center;">
+                    <span style="padding: 8px 16px; background: rgba(0,255,204,0.1); border: 1px solid rgba(0,255,204,0.3); border-radius: 20px; font-size: 13px; color: var(--noir-cyan);">Google Analytics</span>
+                    <span style="padding: 8px 16px; background: rgba(0,255,204,0.1); border: 1px solid rgba(0,255,204,0.3); border-radius: 20px; font-size: 13px; color: var(--noir-cyan);">Facebook Pixel</span>
+                    <span style="padding: 8px 16px; background: rgba(0,255,204,0.1); border: 1px solid rgba(0,255,204,0.3); border-radius: 20px; font-size: 13px; color: var(--noir-cyan);">Hotjar</span>
+                    <span style="padding: 8px 16px; background: rgba(0,255,204,0.1); border: 1px solid rgba(0,255,204,0.3); border-radius: 20px; font-size: 13px; color: var(--noir-cyan);">Mixpanel</span>
+                    <span style="padding: 8px 16px; background: rgba(0,255,204,0.1); border: 1px solid rgba(0,255,204,0.3); border-radius: 20px; font-size: 13px; color: var(--noir-cyan);">Segment</span>
+                    <span style="padding: 8px 16px; background: rgba(0,255,204,0.1); border: 1px solid rgba(0,255,204,0.3); border-radius: 20px; font-size: 13px; color: var(--noir-cyan);">Amplitude</span>
+                    <span style="padding: 8px 16px; background: rgba(0,255,204,0.1); border: 1px solid rgba(0,255,204,0.3); border-radius: 20px; font-size: 13px; color: var(--noir-cyan);">DoubleClick</span>
+                    <span style="padding: 8px 16px; background: rgba(0,255,204,0.1); border: 1px solid rgba(0,255,204,0.3); border-radius: 20px; font-size: 13px; color: var(--noir-cyan);">NewRelic</span>
+                    <span style="padding: 8px 16px; background: rgba(0,255,204,0.1); border: 1px solid rgba(0,255,204,0.3); border-radius: 20px; font-size: 13px; color: var(--noir-cyan);">FullStory</span>
+                    <span style="padding: 8px 16px; background: rgba(0,255,204,0.1); border: 1px solid rgba(0,255,204,0.3); border-radius: 20px; font-size: 13px; color: var(--noir-cyan);">Heap</span>
+                    <span style="padding: 8px 16px; background: rgba(0,255,204,0.1); border: 1px solid rgba(0,255,204,0.3); border-radius: 20px; font-size: 13px; color: var(--noir-cyan);">Optimizely</span>
+                    <span style="padding: 8px 16px; background: rgba(0,255,204,0.1); border: 1px solid rgba(0,255,204,0.3); border-radius: 20px; font-size: 13px; color: var(--noir-cyan);">+ 40 more</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-section">
+        <div class="how-container">
+            <div class="how-header">
+                <h2>How to Install</h2>
+            </div>
+
+            <div class="how-steps">
+                <div class="how-step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Download the Extension</h3>
+                        <p>Clone or download the NOIR Browser Firefox repository from GitHub. The extension is in the <code>extension/</code> folder.</p>
+                    </div>
+                </div>
+
+                <div class="how-step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Load in Firefox</h3>
+                        <p>Open Firefox, navigate to <code>about:debugging</code>, click "This Firefox", then "Load Temporary Add-on" and select <code>manifest.json</code>.</p>
+                    </div>
+                </div>
+
+                <div class="how-step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Configure API Key</h3>
+                        <p>Click the NOIR extension icon, go to Settings, and enter your Claude API key to enable AI features.</p>
+                    </div>
+                </div>
+
+                <div class="how-step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>Start MCP Server (Optional)</h3>
+                        <p>For Docker code execution, run <code>START_NOIR_BROWSER.bat</code> to start the MCP backend server.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Requirements -->
+    <section class="requirements-section">
+        <div class="requirements-container">
+            <h2>Requirements</h2>
+            <div class="requirements-grid">
+                <div class="requirement-item">
+                    <h4>Firefox</h4>
+                    <p>Version 109 or newer</p>
+                </div>
+                <div class="requirement-item">
+                    <h4>Claude API Key</h4>
+                    <p>For AI chat features</p>
+                </div>
+                <div class="requirement-item">
+                    <h4>Docker (Optional)</h4>
+                    <p>For code execution sandbox</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-container">
+            <h2>Ready to Secure Your Browser?</h2>
+            <p>Download NOIR Security Extension and take control of your privacy.</p>
+            <div class="cta-buttons">
+                <a href="https://github.com/oroboroslab/noir-browser-firefox/releases" class="btn-extension-primary" target="_blank">
+                    Download Now
+                </a>
+                <a href="noir-shield.html" class="btn-extension-secondary">
+                    Learn About NOIR Shield
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="extension-footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <strong>OROBOROS LABS</strong>
+            </div>
+            <p class="footer-motto">"What We Don't See, Can't Be Stolen"</p>
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="noir-shield.html">NOIR Shield</a>
+                <a href="services.html">Services</a>
+                <a href="https://github.com/oroboroslab" target="_blank">GitHub</a>
+            </div>
+            <p class="footer-resonance">Resonance: 7.8Hz | Phi: 1.61803 | Engine: Gecko</p>
+        </div>
+    </footer>
+</body>
+
+</html>
