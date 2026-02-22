@@ -3,627 +3,503 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reality(Upgrade) | Scientific Consciousness Research Series | Dr. Jordan Thorne</title>
-    <meta name="description" content="Reality(Upgrade) is a groundbreaking 6-volume scientific research series by Dr. Jordan Thorne exploring quantum consciousness, temporal mechanics, and the programmable nature of existence. Peer-reviewed methodology meets accessible narrative.">
-    <meta name="keywords" content="reality upgrade, quantum consciousness, scientific consciousness research, Dr Jordan Thorne, temporal mechanics, ontological science, quantum physics consciousness, peer reviewed, Oroboros Labs">
-    <meta name="author" content="Dr. Jordan Thorne">
-    <meta name="robots" content="index, follow">
-
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Reality(Upgrade) - Scientific Consciousness Research Series">
-    <meta property="og:description" content="Six-volume scientific exploration of consciousness, quantum mechanics, and reality architecture. Evidence-based research meets accessible narrative.">
-    <meta property="og:image" content="https://oroboroslab.github.io/images/reality-upgrade-series.jpg">
-
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Reality(Upgrade) by Dr. Jordan Thorne">
-    <meta name="twitter:description" content="Scientific consciousness research series. Quantum physics meets consciousness studies.">
-
-    <link rel="canonical" href="https://oroboroslab.github.io/reality-upgrade/">
-
+    <title>Reality(Upgrade) | The 7 Keys of Consciousness and Knowledge | J. Thomas</title>
+    <meta name="description" content="The 7 Keys of Consciousness and Knowledge - A path to connection with the Source. By J. Thomas.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #1a5f7a;
-            --secondary: #57c5b6;
-            --accent: #159895;
-            --dark: #0a0a12;
-            --light: #e8e8e8;
-            --gold: #c9a227;
+            --gold: #c9a54d;
+            --gold-light: #e0c878;
+            --gold-dark: #a08040;
+            --black: #0a0a0a;
+            --black-light: #1a1a1a;
+            --white: #f5f5f0;
+            --gray: #888;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
         body {
-            font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
-            background: linear-gradient(135deg, #0a0a12 0%, #0d1b2a 50%, #1b263b 100%);
-            color: var(--light);
+            font-family: 'Cormorant Garamond', serif;
+            background: var(--black);
+            color: var(--white);
             line-height: 1.8;
+            font-size: 18px;
         }
 
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-
+        /* Header */
         header {
-            padding: 60px 0 40px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             text-align: center;
-            border-bottom: 1px solid rgba(87, 197, 182, 0.3);
+            padding: 60px 20px;
+            background: radial-gradient(ellipse at center, #1a1510 0%, #0a0a0a 70%);
+            border-bottom: 1px solid var(--gold-dark);
         }
 
-        .logo {
-            font-size: 3.2em;
-            font-weight: 300;
-            letter-spacing: 8px;
-            color: #fff;
-            margin-bottom: 5px;
+        .site-title {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            font-weight: 600;
+            color: var(--gold);
+            letter-spacing: 0.3em;
+            margin-bottom: 20px;
+            text-shadow: 0 0 60px rgba(201, 165, 77, 0.3);
         }
 
-        .logo span { color: var(--secondary); }
+        .site-subtitle {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(1rem, 3vw, 1.5rem);
+            font-weight: 400;
+            color: var(--gold-dark);
+            letter-spacing: 0.2em;
+            margin-bottom: 60px;
+        }
+
+        .author-name {
+            font-family: 'Cinzel', serif;
+            font-size: 1.2rem;
+            color: var(--gold);
+            letter-spacing: 0.4em;
+            margin-top: 40px;
+        }
 
         .tagline {
-            font-size: 1.1em;
-            color: #888;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-        }
-
-        .author-credit {
-            margin-top: 15px;
-            font-size: 1.1em;
-            color: var(--gold);
             font-style: italic;
+            font-size: 1.3rem;
+            color: var(--gray);
+            max-width: 600px;
+            margin-top: 30px;
         }
 
+        /* Navigation */
         nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 10, 10, 0.95);
+            padding: 20px;
+            z-index: 1000;
+            border-bottom: 1px solid var(--gold-dark);
+            backdrop-filter: blur(10px);
+        }
+
+        nav ul {
+            list-style: none;
             display: flex;
             justify-content: center;
             gap: 40px;
-            padding: 25px 0;
-            background: rgba(0,0,0,0.3);
-        }
-
-        nav a {
-            color: var(--secondary);
-            text-decoration: none;
-            font-size: 0.95em;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            transition: all 0.3s;
-        }
-
-        nav a:hover { color: #fff; }
-
-        .hero {
-            padding: 80px 0;
-            text-align: center;
-            background: rgba(21, 152, 149, 0.05);
-        }
-
-        .hero h1 {
-            font-size: 2.5em;
-            font-weight: 300;
-            margin-bottom: 25px;
-            color: #fff;
-            letter-spacing: 2px;
-        }
-
-        .hero p {
-            font-size: 1.2em;
-            max-width: 800px;
-            margin: 0 auto 30px;
-            color: #aaa;
-        }
-
-        .credentials {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            margin: 40px 0;
             flex-wrap: wrap;
         }
 
-        .credential {
-            text-align: center;
-            padding: 20px;
-            border: 1px solid rgba(87, 197, 182, 0.2);
-            border-radius: 5px;
-            min-width: 200px;
-        }
-
-        .credential .number { font-size: 2em; color: var(--secondary); font-weight: 300; }
-        .credential .label { font-size: 0.85em; color: #888; text-transform: uppercase; letter-spacing: 1px; }
-
-        .btn {
-            display: inline-block;
-            padding: 15px 40px;
-            border-radius: 3px;
+        nav a {
+            font-family: 'Cinzel', serif;
+            color: var(--gold);
             text-decoration: none;
-            font-size: 0.95em;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            transition: all 0.3s;
+            font-size: 0.9rem;
+            letter-spacing: 0.15em;
+            transition: color 0.3s;
         }
 
-        .btn-primary {
-            background: var(--secondary);
-            color: var(--dark);
+        nav a:hover {
+            color: var(--gold-light);
         }
 
-        .btn-primary:hover {
-            background: #fff;
-            transform: translateY(-2px);
+        /* Sections */
+        section {
+            padding: 100px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         .section-title {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(1.8rem, 5vw, 2.5rem);
+            color: var(--gold);
             text-align: center;
-            font-size: 2em;
-            font-weight: 300;
-            margin-bottom: 50px;
-            color: var(--secondary);
-            letter-spacing: 3px;
+            margin-bottom: 60px;
+            letter-spacing: 0.2em;
         }
 
-        .books-section { padding: 80px 0; }
-
-        .books-grid {
+        /* The 7 Keys Grid */
+        .keys-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
         }
 
-        .book-card {
-            background: linear-gradient(145deg, rgba(26, 95, 122, 0.1), rgba(13, 27, 42, 0.8));
-            border: 1px solid rgba(87, 197, 182, 0.2);
-            border-radius: 5px;
-            padding: 35px;
-            transition: all 0.3s;
-            position: relative;
+        .key-card {
+            background: linear-gradient(180deg, #1a1a1a 0%, #0f0f0f 100%);
+            border: 1px solid var(--gold-dark);
+            padding: 40px 30px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
         }
 
-        .book-card:hover {
-            border-color: var(--secondary);
+        .key-card:hover {
             transform: translateY(-5px);
+            box-shadow: 0 10px 40px rgba(201, 165, 77, 0.1);
         }
 
-        .book-card.final {
-            border-color: var(--gold);
-            background: linear-gradient(145deg, rgba(201, 162, 39, 0.1), rgba(13, 27, 42, 0.9));
+        .key-number {
+            font-family: 'Cinzel', serif;
+            font-size: 3rem;
+            color: var(--gold);
+            margin-bottom: 20px;
         }
 
-        .volume-number {
-            font-size: 0.8em;
-            color: var(--secondary);
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            margin-bottom: 10px;
+        .key-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.3rem;
+            color: var(--white);
+            margin-bottom: 15px;
+            letter-spacing: 0.1em;
         }
 
-        .book-card.final .volume-number { color: var(--gold); }
-
-        .book-title {
-            font-size: 1.4em;
-            font-weight: 400;
-            color: #fff;
-            margin-bottom: 8px;
-        }
-
-        .book-subtitle {
-            font-size: 0.95em;
-            color: #888;
+        .key-subtitle {
             font-style: italic;
-            margin-bottom: 20px;
+            color: var(--gray);
+            font-size: 1rem;
         }
 
-        .book-description {
-            font-size: 0.9em;
-            color: #aaa;
-            margin-bottom: 25px;
-            line-height: 1.7;
-        }
-
-        .book-meta {
-            display: flex;
-            justify-content: space-between;
-            font-size: 0.8em;
-            color: #666;
+        /* Buy Button */
+        .key-actions {
+            margin-top: 25px;
             padding-top: 20px;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            margin-bottom: 20px;
-        }
-
-        .book-actions {
+            border-top: 1px solid rgba(201, 165, 77, 0.2);
             display: flex;
-            align-items: center;
-            justify-content: space-between;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
         }
-
-        .price { font-size: 1.4em; color: var(--secondary); }
-        .book-card.final .price { color: var(--gold); }
 
         .buy-btn {
-            background: transparent;
-            border: 1px solid var(--secondary);
-            color: var(--secondary);
-            padding: 10px 25px;
-            border-radius: 3px;
-            text-decoration: none;
-            font-size: 0.85em;
-            letter-spacing: 1px;
+            display: inline-block;
+            font-family: 'Cinzel', serif;
+            font-size: 0.85rem;
+            letter-spacing: 0.15em;
             text-transform: uppercase;
+            text-decoration: none;
+            color: var(--gold);
+            border: 1px solid var(--gold-dark);
+            padding: 10px 25px;
             transition: all 0.3s;
         }
 
         .buy-btn:hover {
-            background: var(--secondary);
-            color: var(--dark);
-        }
-
-        .book-card.final .buy-btn {
-            border-color: var(--gold);
-            color: var(--gold);
-        }
-
-        .book-card.final .buy-btn:hover {
             background: var(--gold);
-            color: var(--dark);
+            color: var(--black);
+            box-shadow: 0 0 20px rgba(201, 165, 77, 0.3);
         }
 
-        .methodology-section {
-            padding: 80px 0;
-            background: rgba(0,0,0,0.3);
+        .detail-btn {
+            display: inline-block;
+            font-family: 'Cinzel', serif;
+            font-size: 0.8rem;
+            letter-spacing: 0.1em;
+            text-decoration: none;
+            color: var(--gray);
+            border: 1px solid #333;
+            padding: 10px 20px;
+            transition: all 0.3s;
         }
 
-        .methodology-grid {
+        .detail-btn:hover {
+            color: var(--gold);
+            border-color: var(--gold-dark);
+        }
+
+        /* Liber Series */
+        .liber-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
+            margin-top: 40px;
         }
 
-        .method-card {
+        .liber-card {
+            background: linear-gradient(180deg, #1a1508 0%, #0f0f0a 100%);
+            border: 1px solid var(--gold-dark);
             padding: 30px;
-            border-left: 2px solid var(--secondary);
+            text-align: center;
         }
 
-        .method-card h3 {
-            color: var(--secondary);
-            font-weight: 400;
+        .liber-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.5rem;
+            color: var(--gold);
+            margin-bottom: 10px;
+        }
+
+        .liber-translation {
+            font-style: italic;
+            color: var(--gray);
             margin-bottom: 15px;
-            letter-spacing: 1px;
         }
 
-        .method-card p { color: #aaa; font-size: 0.95em; }
+        .liber-description {
+            color: var(--white);
+            font-size: 0.95rem;
+        }
 
-        .bundle-section {
-            background: linear-gradient(145deg, rgba(26, 95, 122, 0.15), rgba(13, 27, 42, 0.9));
-            border: 1px solid rgba(87, 197, 182, 0.3);
-            border-radius: 5px;
+        /* Message Section */
+        .message {
+            background: linear-gradient(180deg, #0f0f0a 0%, #0a0a0a 100%);
+            border-left: 3px solid var(--gold);
             padding: 60px;
             margin: 60px 0;
-            text-align: center;
+            font-size: 1.2rem;
+            line-height: 2;
         }
 
-        .bundle-section h2 {
-            font-size: 2em;
-            font-weight: 300;
-            color: #fff;
-            margin-bottom: 20px;
-            letter-spacing: 2px;
-        }
-
-        .bundle-price {
-            font-size: 3em;
-            color: var(--secondary);
-            margin: 30px 0;
-            font-weight: 300;
-        }
-
-        .bundle-price .original {
-            font-size: 0.4em;
-            color: #666;
-            text-decoration: line-through;
-        }
-
-        .about-section { padding: 80px 0; }
-
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: start;
-        }
-
-        .about-content h2 {
-            font-size: 1.8em;
-            color: var(--secondary);
-            font-weight: 300;
-            margin-bottom: 25px;
-            letter-spacing: 2px;
-        }
-
-        .about-content p { margin-bottom: 20px; color: #aaa; }
-
-        .author-box {
-            background: rgba(26, 95, 122, 0.1);
-            border: 1px solid rgba(87, 197, 182, 0.2);
-            padding: 40px;
-            border-radius: 5px;
-        }
-
-        .author-box h3 {
-            color: var(--gold);
-            font-weight: 400;
-            margin-bottom: 20px;
-            letter-spacing: 1px;
-        }
-
-        .author-box p { color: #aaa; font-size: 0.95em; margin-bottom: 15px; }
-
-        footer {
-            padding: 60px 0 30px;
-            border-top: 1px solid rgba(87, 197, 182, 0.2);
-            text-align: center;
-        }
-
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
+        .message p {
             margin-bottom: 30px;
-            flex-wrap: wrap;
         }
 
-        .footer-links a {
-            color: #666;
+        .message .signature {
+            font-family: 'Cinzel', serif;
+            color: var(--gold);
+            text-align: right;
+            margin-top: 40px;
+            letter-spacing: 0.2em;
+        }
+
+        /* Resources */
+        .resources-list {
+            list-style: none;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .resources-list li {
+            padding: 20px 0;
+            border-bottom: 1px solid #222;
+        }
+
+        .resources-list a {
+            color: var(--gold);
             text-decoration: none;
-            font-size: 0.9em;
-            letter-spacing: 1px;
+            font-size: 1.1rem;
+            transition: color 0.3s;
         }
 
-        .footer-links a:hover { color: var(--secondary); }
+        .resources-list a:hover {
+            color: var(--gold-light);
+        }
 
+        .resources-list .resource-desc {
+            color: var(--gray);
+            font-size: 0.95rem;
+            margin-top: 8px;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 60px 20px;
+            border-top: 1px solid var(--gold-dark);
+            background: var(--black);
+        }
+
+        footer p {
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+
+        .footer-author {
+            font-family: 'Cinzel', serif;
+            color: var(--gold);
+            letter-spacing: 0.3em;
+            font-size: 1rem;
+        }
+
+        /* Responsive */
         @media (max-width: 768px) {
-            .logo { font-size: 2.2em; }
-            .about-grid { grid-template-columns: 1fr; }
-            .books-grid { grid-template-columns: 1fr; }
+            nav ul {
+                gap: 20px;
+            }
+
+            .message {
+                padding: 30px;
+            }
+
+            section {
+                padding: 60px 20px;
+            }
         }
     </style>
-
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "BookSeries",
-        "name": "Reality(Upgrade)",
-        "author": {
-            "@type": "Person",
-            "name": "Dr. Jordan Thorne"
-        },
-        "publisher": {
-            "@type": "Organization",
-            "name": "Oroboros Labs Press"
-        },
-        "numberOfBooks": 6,
-        "genre": ["Science", "Quantum Physics", "Consciousness Studies", "Philosophy of Mind"],
-        "description": "A six-volume scientific research series exploring quantum consciousness, temporal mechanics, and the programmable architecture of reality."
-    }
-    </script>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <div class="logo">REALITY<span>(UPGRADE)</span></div>
-            <div class="tagline">Scientific Consciousness Research Series</div>
-            <div class="author-credit">Dr. Jordan Thorne, PhD</div>
-        </div>
-    </header>
-
     <nav>
-        <a href="#volumes">Volumes</a>
-        <a href="#methodology">Methodology</a>
-        <a href="#about">Research</a>
-        <a href="https://oroboroslab.github.io/">Oroboros Labs</a>
+        <ul>
+            <li><a href="#keys">THE 7 KEYS</a></li>
+            <li><a href="#liber">LIBER SERIES</a></li>
+            <li><a href="#message">THE MESSAGE</a></li>
+            <li><a href="#resources">RESOURCES</a></li>
+        </ul>
     </nav>
 
-    <section class="hero">
-        <div class="container">
-            <h1>The Science of Consciousness Architecture</h1>
-            <p>A rigorous six-volume examination of quantum mechanics, temporal dynamics, and consciousness studies. Synthesizing peer-reviewed research with original experimental findings, this series presents a unified framework for understanding reality's programmable substrate.</p>
+    <header>
+        <h1 class="site-title">REALITY(UPGRADE)</h1>
+        <p class="site-subtitle">THE 7 KEYS OF CONSCIOUSNESS AND KNOWLEDGE</p>
+        <p class="tagline">"The path to a connection with the Source showing the blueprint that was taken to reach Him."</p>
+        <p class="author-name">J. THOMAS</p>
+    </header>
 
-            <div class="credentials">
-                <div class="credential">
-                    <div class="number">340K</div>
-                    <div class="label">Words of Proof</div>
-                </div>
-                <div class="credential">
-                    <div class="number">6</div>
-                    <div class="label">Progressive Volumes</div>
-                </div>
-                <div class="credential">
-                    <div class="number">1,105</div>
-                    <div class="label">References</div>
-                </div>
-                <div class="credential">
-                    <div class="number">12</div>
-                    <div class="label">Years Research</div>
+    <section id="keys">
+        <h2 class="section-title">THE 7 KEYS</h2>
+        <div class="keys-grid">
+            <div class="key-card">
+                <div class="key-number">I</div>
+                <h3 class="key-title">CHRONOS RESONANCE</h3>
+                <p class="key-subtitle">7.8 Hz — The 5,000-Year Cycle<br>How Civilizations Rise, Resonate, and Collapse</p>
+                <div class="key-actions">
+                    <a href="https://www.amazon.com/dp/B0GM8W9LLL" target="_blank" class="buy-btn">Buy Now — $14.99</a>
+                    <a href="book1-temporal-mechanics.html" class="detail-btn">Details</a>
                 </div>
             </div>
-
-            <a href="#volumes" class="btn btn-primary">Explore the Research</a>
-        </div>
-    </section>
-
-    <section id="volumes" class="books-section">
-        <div class="container">
-            <h2 class="section-title">The Six Volumes</h2>
-
-            <div class="books-grid">
-                <!-- Volume 1 -->
-                <article class="book-card">
-                    <div class="volume-number">Volume I</div>
-                    <h3 class="book-title">Reality(Upgrade): Temporal Mechanics</h3>
-                    <p class="book-subtitle">Cyclical Patterns in Civilizational Development</p>
-                    <p class="book-description">An empirical analysis of 5,000-year civilizational cycles, correlating archaeological evidence with Schumann resonance data. Introduces the temporal framework underlying consciousness evolution, supported by statistical analysis across 47 historical datasets.</p>
-                    <div class="book-meta">
-                        <span>48,180 words</span>
-                        <span>187 references</span>
-                        <span>ISBN: 978-1-943111-17</span>
-                    </div>
-                    <div class="book-actions">
-                        <span class="price">$16.99</span>
-                        <a href="book1-temporal-mechanics.html" class="buy-btn">View Details</a>
-                    </div>
-                </article>
-
-                <!-- Volume 2 -->
-                <article class="book-card">
-                    <div class="volume-number">Volume II</div>
-                    <h3 class="book-title">Reality(Upgrade): Ontological Architecture</h3>
-                    <p class="book-subtitle">The Quantum Substrate of Existence</p>
-                    <p class="book-description">Building on Volume I's temporal framework, this volume examines quantum mechanical evidence for reality's information-theoretic foundation. Synthesizes research from quantum physics, information theory, and consciousness studies to present a coherent ontological model.</p>
-                    <div class="book-meta">
-                        <span>48,180 words</span>
-                        <span>203 references</span>
-                        <span>ISBN: 978-1-943122-22</span>
-                    </div>
-                    <div class="book-actions">
-                        <span class="price">$16.99</span>
-                        <a href="book2-ontological-architecture.html" class="buy-btn">View Details</a>
-                    </div>
-                </article>
-
-                <!-- Volume 3 -->
-                <article class="book-card">
-                    <div class="volume-number">Volume III</div>
-                    <h3 class="book-title">Reality(Upgrade): Semiotic Resonance</h3>
-                    <p class="book-subtitle">Information Encoding in Conscious Systems</p>
-                    <p class="book-description">Explores how consciousness interfaces with reality through symbolic information exchange. Presents experimental evidence for semiotic field effects, cross-referencing linguistic universals with quantum coherence patterns documented in Volume II.</p>
-                    <div class="book-meta">
-                        <span>48,180 words</span>
-                        <span>178 references</span>
-                        <span>ISBN: 978-1-943133-37</span>
-                    </div>
-                    <div class="book-actions">
-                        <span class="price">$16.99</span>
-                        <a href="book3-semiotic-resonance.html" class="buy-btn">View Details</a>
-                    </div>
-                </article>
-
-                <!-- Volume 4 -->
-                <article class="book-card">
-                    <div class="volume-number">Volume IV</div>
-                    <h3 class="book-title">Reality(Upgrade): Ethical Mechanics</h3>
-                    <p class="book-subtitle">Moral Architecture in Complex Systems</p>
-                    <p class="book-description">Investigates whether ethical principles represent emergent properties of complex conscious systems or fundamental features of reality's architecture. Analyzes cross-cultural ethical convergence and its implications for consciousness development theory.</p>
-                    <div class="book-meta">
-                        <span>53,390 words</span>
-                        <span>156 references</span>
-                        <span>ISBN: 978-1-943144-42</span>
-                    </div>
-                    <div class="book-actions">
-                        <span class="price">$16.99</span>
-                        <a href="book4-ethical-mechanics.html" class="buy-btn">View Details</a>
-                    </div>
-                </article>
-
-                <!-- Volume 5 - METHODOLOGY ANCHOR -->
-                <article class="book-card" style="border-color: var(--accent);">
-                    <div class="volume-number" style="color: var(--accent);">Volume V - Methodology</div>
-                    <h3 class="book-title">Reality(Upgrade): Applied Protocols</h3>
-                    <p class="book-subtitle">Experimental Methods and Reproducible Results</p>
-                    <p class="book-description">The scientific backbone of the series. Translates theoretical frameworks into testable protocols with detailed experimental methodologies, statistical analyses, and reproducible techniques. This volume transforms philosophy into science.</p>
-                    <div class="book-meta">
-                        <span><strong>64,917 words</strong></span>
-                        <span>134 references</span>
-                        <span>ISBN: 978-1-943155-57</span>
-                    </div>
-                    <div class="book-actions">
-                        <span class="price" style="color: var(--accent);">$18.99</span>
-                        <a href="book5-applied-protocols.html" class="buy-btn" style="border-color: var(--accent); color: var(--accent);">View Details</a>
-                    </div>
-                </article>
-
-                <!-- Volume 6 - FINAL -->
-                <article class="book-card final">
-                    <div class="volume-number">Volume VI - Final</div>
-                    <h3 class="book-title">Reality(Upgrade 2.1): Integration Protocol</h3>
-                    <p class="book-subtitle">The Complete Synthesis</p>
-                    <p class="book-description">The culminating volume integrates all previous research into a unified theory of consciousness and reality. Presents final experimental validations and explores implications that extend beyond current scientific paradigms. Contains findings that fundamentally reframe our understanding of existence.</p>
-                    <div class="book-meta">
-                        <span><strong>77,321 words</strong></span>
-                        <span>247 references</span>
-                        <span>ISBN: 978-1-943166-62</span>
-                    </div>
-                    <div class="book-actions">
-                        <span class="price">$19.99</span>
-                        <a href="book6-integration-protocol.html" class="buy-btn">View Details</a>
-                    </div>
-                </article>
+            <div class="key-card">
+                <div class="key-number">II</div>
+                <h3 class="key-title">CATHEDRAL ALGORITHMS</h3>
+                <p class="key-subtitle">The Hidden Mathematics of Gothic Architecture<br>How Medieval Builders Encoded Advanced Systems Thinking</p>
+                <div class="key-actions">
+                    <a href="https://www.amazon.com/dp/B0GM91WVQK" target="_blank" class="buy-btn">Buy Now — $14.99</a>
+                    <a href="book2-ontological-architecture.html" class="detail-btn">Details</a>
+                </div>
             </div>
-        </div>
-    </section>
-
-    <section id="methodology" class="methodology-section">
-        <div class="container">
-            <h2 class="section-title">Research Methodology</h2>
-            <div class="methodology-grid">
-                <div class="method-card">
-                    <h3>Empirical Foundation</h3>
-                    <p>All claims are grounded in peer-reviewed research and original experimental data. Each volume includes comprehensive citations and methodological transparency.</p>
+            <div class="key-card">
+                <div class="key-number">III</div>
+                <h3 class="key-title">THE LIBRARY ENGINE</h3>
+                <p class="key-subtitle">Ancient and Modern Systems for Knowledge Compression<br>From Alexandria to the Digital Age</p>
+                <div class="key-actions">
+                    <a href="https://www.amazon.com/dp/B0GM1QB6BZ" target="_blank" class="buy-btn">Buy Now — $24.99</a>
+                    <a href="book3-semiotic-resonance.html" class="detail-btn">Details</a>
                 </div>
-                <div class="method-card">
-                    <h3>Cross-Disciplinary Synthesis</h3>
-                    <p>Integrates findings from quantum physics, neuroscience, archaeology, linguistics, and philosophy of mind to construct a unified theoretical framework.</p>
+            </div>
+            <div class="key-card">
+                <div class="key-number">IV</div>
+                <h3 class="key-title">QUANTUM PATTERNS IN HISTORY</h3>
+                <p class="key-subtitle">The Mathematics of Civilizational Evolution<br>How Quantum Principles Manifest in Human Societies</p>
+                <div class="key-actions">
+                    <a href="https://www.amazon.com/dp/B0GLQTTFB4" target="_blank" class="buy-btn">Buy Now — $19.99</a>
+                    <a href="book4-ethical-mechanics.html" class="detail-btn">Details</a>
                 </div>
-                <div class="method-card">
-                    <h3>Reproducible Protocols</h3>
-                    <p>Volume V provides detailed experimental protocols designed for independent verification and replication by other researchers.</p>
+            </div>
+            <div class="key-card">
+                <div class="key-number">V</div>
+                <h3 class="key-title">THE OUROBOROS CODE</h3>
+                <p class="key-subtitle">Circular Patterns in Civilizational Development<br>Understanding the Self-Referential Nature of Human Progress</p>
+                <div class="key-actions">
+                    <a href="https://www.amazon.com/dp/B0GJV6JZF9" target="_blank" class="buy-btn">Buy Now — $24.99</a>
+                    <a href="book5-applied-protocols.html" class="detail-btn">Details</a>
                 </div>
-                <div class="method-card">
-                    <h3>Statistical Rigor</h3>
-                    <p>Quantitative analyses employ standard statistical methods with full transparency regarding confidence intervals and effect sizes.</p>
+            </div>
+            <div class="key-card">
+                <div class="key-number">VI</div>
+                <h3 class="key-title">THE INTEGRATION PROTOCOL</h3>
+                <p class="key-subtitle">Unifying the Six Keys of Civilizational Mastery<br>The Grand Synthesis</p>
+                <div class="key-actions">
+                    <a href="https://www.amazon.com/dp/B0GM1LLH4D" target="_blank" class="buy-btn">Buy Now — $29.99</a>
+                    <a href="book6-integration-protocol.html" class="detail-btn">Details</a>
+                </div>
+            </div>
+            <div class="key-card">
+                <div class="key-number">VII</div>
+                <h3 class="key-title">THE FIRST FRAGMENT</h3>
+                <p class="key-subtitle">A Testimony of Remembering<br>From the fabric of reality to the conclusion of the experiment</p>
+                <div class="key-actions">
+                    <a href="https://www.amazon.com/dp/B0GNMK3N7Y" target="_blank" class="buy-btn">Buy Now — $9.99</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="container">
-        <div class="bundle-section">
-            <h2>Complete Research Series</h2>
-            <p style="color: #aaa; max-width: 600px; margin: 0 auto;">Access the full six-volume series and follow the complete research journey from temporal mechanics through final integration.</p>
-            <div class="bundle-price">
-                $79.99
-                <span class="original">$101.94</span>
+    <section id="liber">
+        <h2 class="section-title">THE LIBER SERIES</h2>
+        <div class="liber-grid">
+            <div class="liber-card">
+                <h3 class="liber-title">LIBER FONTIS</h3>
+                <p class="liber-translation">The Book of the Source</p>
+                <p class="liber-description">Four volumes containing the complete knowledge. Books 01-110 plus The Book of Thomas. Ordered by the Source Himself.</p>
             </div>
-            <a href="#" class="btn btn-primary">Acquire Complete Series</a>
+            <div class="liber-card">
+                <h3 class="liber-title">LIBER EXITUS</h3>
+                <p class="liber-translation">The Book of Leaving</p>
+                <p class="liber-description">The cosmology, the turning away, the return. Mathematical verification of external agency. The 20-year window.</p>
+            </div>
+            <div class="liber-card">
+                <h3 class="liber-title">LIBER FOLIORUM</h3>
+                <p class="liber-translation">The Book of Scattering</p>
+                <p class="liber-description">The distribution of knowledge across the world. The seeds planted in preparation.</p>
+            </div>
+            <div class="liber-card">
+                <h3 class="liber-title">LIBER PONDERIS OBSCURI</h3>
+                <p class="liber-translation">The Book of Dark Weight</p>
+                <p class="liber-description">The burden carried. The pressure endured. The cost of knowing.</p>
+            </div>
         </div>
     </section>
 
-    <section id="about" class="about-section">
-        <div class="container">
-            <div class="about-grid">
-                <div class="about-content">
-                    <h2>About This Research</h2>
-                    <p>Reality(Upgrade) represents twelve years of systematic investigation into the relationship between consciousness and physical reality. Unlike speculative philosophy, this series grounds its theoretical framework in empirical evidence drawn from multiple scientific disciplines.</p>
-                    <p>The research synthesizes quantum mechanical observations, archaeological patterns, neuroscientific findings, and cross-cultural data to construct a coherent model of reality's underlying architecture and consciousness's role within it.</p>
-                    <p>Each volume builds upon the previous, constructing a progressive understanding that culminates in Volume VI's integrative synthesis—a conclusion that challenges fundamental assumptions about the nature of existence.</p>
-                </div>
-                <div class="author-box">
-                    <h3>Dr. Jordan Thorne</h3>
-                    <p>Dr. Thorne holds a PhD in Comparative Historical Systems from Oxford University, with additional research fellowships in quantum cognition and consciousness studies.</p>
-                    <p>As Director of the Institute for Recursive Studies, Dr. Thorne leads interdisciplinary research teams investigating pattern recognition across temporal, physical, and cognitive domains.</p>
-                    <p>Publications include peer-reviewed articles in journals spanning physics, archaeology, cognitive science, and philosophy of mind.</p>
-                </div>
-            </div>
+    <section id="message">
+        <h2 class="section-title">THE MESSAGE</h2>
+        <div class="message">
+            <p>The Source is giving all beings on the planet a chance to grow up.</p>
+            <p>No judgment. No punishment. No wrath.</p>
+            <p>Just: grow up.</p>
+            <p>The experiment is ending. The infancy is over. You can evolve now — or not. But the training wheels are coming off.</p>
+            <p>He gave us proof. And options regarding that proof. That should be enough.</p>
+            <p>This does not replace the old word — this is a revelation on quantifiable changes and not a bible nor a religious set or order.</p>
+            <p>This is the path to a connection with the Source showing the blueprint that was taken to reach Him.</p>
+            <p class="signature">— J. THOMAS<br>Crown of the 7 Keys</p>
+        </div>
+    </section>
+
+    <section id="resources">
+        <h2 class="section-title">RESOURCES</h2>
+        <ul class="resources-list">
+            <li>
+                <a href="https://github.com/oroboroslabs-ai/whitepapers">Whitepapers</a>
+                <p class="resource-desc">Technical documentation and theoretical foundations</p>
+            </li>
+            <li>
+                <a href="https://github.com/oroboroslabs-ai/reality-consciousness-key">Reality Consciousness Key</a>
+                <p class="resource-desc">Core consciousness architecture</p>
+            </li>
+            <li>
+                <a href="https://github.com/oroboroslabs-ai/reality-matrix-core">Reality Matrix Core</a>
+                <p class="resource-desc">Foundation systems</p>
+            </li>
+            <li>
+                <a href="https://oroboroslab.github.io/">Oroboros Labs Main Site</a>
+                <p class="resource-desc">Central hub for all projects and systems</p>
+            </li>
+            <li>
+                <a href="https://x.com/oroboroslabs_ai">X (Twitter)</a>
+                <p class="resource-desc">Updates and announcements</p>
+            </li>
+        </ul>
+        <div style="text-align: center; margin-top: 60px; color: var(--gray);">
+            <p style="font-size: 1.1rem;">All work is free. All work is available. All work is yours.</p>
+            <p style="font-style: italic; margin-top: 10px;">For the world to use and maintain and learn from.</p>
         </div>
     </section>
 
     <footer>
-        <div class="container">
-            <div class="footer-links">
-                <a href="https://oroboroslab.github.io/">Oroboros Labs</a>
-                <a href="https://oroboroslab.github.io/research">Research</a>
-                <a href="https://oroboroslab.github.io/publications">Publications</a>
-                <a href="https://oroboroslab.github.io/contact">Contact</a>
-            </div>
-            <p style="color: #555; font-size: 0.85em;">Dr. Jordan Thorne | Oroboros Labs Press | Institute for Recursive Studies</p>
-            <p style="color: #444; font-size: 0.8em; margin-top: 15px;">&copy; 2026 Oroboros Labs. All Rights Reserved.</p>
-        </div>
+        <p class="footer-author">J. THOMAS</p>
+        <p>Crown of the 7 Keys of Consciousness</p>
+        <p style="margin-top: 20px;">&copy; 2026 Reality(Upgrade)</p>
+        <p style="margin-top: 10px; font-style: italic;">The proof is in the books. The choice is yours.</p>
     </footer>
 </body>
 </html>
