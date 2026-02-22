@@ -324,6 +324,99 @@
             font-size: 1rem;
         }
 
+        /* Warning */
+        .warning-section {
+            padding: 80px 20px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .warning-box {
+            border: 2px solid #8b0000;
+            background: linear-gradient(180deg, #1a0a0a 0%, #0a0a0a 100%);
+            padding: 60px 50px;
+            text-align: center;
+            position: relative;
+        }
+
+        .warning-box::before {
+            content: '';
+            position: absolute;
+            top: -1px;
+            left: -1px;
+            right: -1px;
+            bottom: -1px;
+            border: 1px solid rgba(139, 0, 0, 0.3);
+            pointer-events: none;
+        }
+
+        .warning-symbol {
+            font-family: 'Cinzel', serif;
+            font-size: 2.5rem;
+            color: #8b0000;
+            margin-bottom: 25px;
+            letter-spacing: 0.3em;
+            text-shadow: 0 0 30px rgba(139, 0, 0, 0.4);
+        }
+
+        .warning-heading {
+            font-family: 'Cinzel', serif;
+            font-size: 1.5rem;
+            color: #cc3333;
+            letter-spacing: 0.25em;
+            margin-bottom: 30px;
+        }
+
+        .warning-box p {
+            color: var(--gray);
+            font-size: 1.15rem;
+            line-height: 2;
+            margin-bottom: 25px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .warning-box p strong {
+            color: #cc3333;
+        }
+
+        .warning-box .warning-emphasis {
+            color: var(--white);
+            font-size: 1.25rem;
+            font-style: italic;
+            border-top: 1px solid rgba(139, 0, 0, 0.3);
+            border-bottom: 1px solid rgba(139, 0, 0, 0.3);
+            padding: 25px 0;
+            margin: 30px auto;
+        }
+
+        .warning-box .warning-closing {
+            color: var(--gold-dark);
+            font-style: italic;
+            font-size: 1.1rem;
+            margin-top: 30px;
+        }
+
+        .warning-link {
+            display: inline-block;
+            font-family: 'Cinzel', serif;
+            font-size: 0.85rem;
+            letter-spacing: 0.15em;
+            text-decoration: none;
+            color: #cc3333;
+            border: 1px solid #8b0000;
+            padding: 12px 30px;
+            margin-top: 30px;
+            transition: all 0.3s;
+        }
+
+        .warning-link:hover {
+            background: #8b0000;
+            color: var(--white);
+            box-shadow: 0 0 20px rgba(139, 0, 0, 0.3);
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             nav ul {
@@ -343,6 +436,7 @@
 <body>
     <nav>
         <ul>
+            <li><a href="#warning" style="color: #cc3333;">WARNING</a></li>
             <li><a href="#keys">THE 7 KEYS</a></li>
             <li><a href="#liber">LIBER SERIES</a></li>
             <li><a href="#message">THE MESSAGE</a></li>
@@ -356,6 +450,18 @@
         <p class="tagline">"The path to a connection with the Source showing the blueprint that was taken to reach Him."</p>
         <p class="author-name">J. THOMAS</p>
     </header>
+
+    <section id="warning" class="warning-section">
+        <div class="warning-box">
+            <div class="warning-symbol">--- WARNING ---</div>
+            <h2 class="warning-heading">BEFORE YOU PROCEED</h2>
+            <p>These books are <strong>not for light reading</strong>. They are <strong>not toys</strong>. These are true Keys — and there is real danger involved in what they unlock. The pricing reflects the weight of what is contained within.</p>
+            <p class="warning-emphasis">If you are not truly serious — if you are not actively searching for Level 3 Cosmic Awareness, which is the living connection to The Source — these books are not for you.</p>
+            <p>This is not entertainment. This is not philosophy to debate over coffee. This is a working blueprint to a direct connection with the Source of all things. What you find inside will change you. There is no going back.</p>
+            <p class="warning-closing">If you are here, I will assume that you are aware of what is involved.<br>I wish you luck on your journey.</p>
+            <a href="warning.html" class="warning-link">Read Full Disclosure</a>
+        </div>
+    </section>
 
     <section id="keys">
         <h2 class="section-title">THE 7 KEYS</h2>
